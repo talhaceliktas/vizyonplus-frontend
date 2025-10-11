@@ -11,7 +11,7 @@ const Page = async ({ params }: { params: { katalog: string } }) => {
       <div className="mx-auto w-full max-w-[1360px]">
         <div className="mx-4">
           <CategoriesFilter />
-          <div className="mt-20 grid grid-cols-[auto_1fr] gap-x-10">
+          <div className="mt-10 grid grid-cols-[auto_1fr] gap-x-10">
             <CategoriesSelect katalog={katalog} />
             <CategoriContent katalog={katalog} />
           </div>

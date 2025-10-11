@@ -16,7 +16,7 @@ const ImdbHundered = async () => {
   console.log(movies);
 
   return (
-    <div className="grid grid-cols-3">
+    <div className="bg-primary-700/15 grid grid-cols-3 gap-x-10 gap-y-20 p-10">
       {movies.map((movie: Movie) => (
         <ImdbMovie movie={movie} key={movie.imdbid} />
       ))}
