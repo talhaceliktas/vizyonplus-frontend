@@ -64,7 +64,3 @@ body {
     border-top-style: dashed;
   }
 }
-
-.test {
-  clip-path: ellipse(50% 50% at 50% 50%);
-}
