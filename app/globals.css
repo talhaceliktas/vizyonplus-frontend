@@ -1,17 +1,21 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary-50: #f5f5f5; /* çok açık gri */
+  --color-primary-50: #f5f5f5;
   --color-primary-100: #e0e0e0;
   --color-primary-200: #c2c2c2;
   --color-primary-300: #a3a3a3;
   --color-primary-400: #858585;
   --color-primary-500: #666666;
   --color-primary-600: #444444;
-  --color-primary-700: #121212; /* verdiğin referans */
-  --color-primary-800: #1c1c1c; /* verdiğin referans */
-  --color-primary-900: #2a2a2a; /* verdiğin referans */
-  --color-primary-950: #0a0a0a; /* ekstra koyu ton */
+  --color-primary-700: #121212;
+  --color-primary-800: #1c1c1c;
+  --color-primary-900: #2a2a2a;
+  --color-primary-950: #0a0a0a;
+
+  --color-secondary-1: #ffd700;
+  --color-secondary-2: #cbac05;
+  --color-secondary-3: #9e8704;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -36,13 +40,17 @@ body {
   bottom: 0;
   left: 0;
   width: 0;
-  height: 1px;
-  background-color: #4f46e5;
+  height: 2px;
+  background-color: #444444;
   transition: width 0.3s ease;
 }
 
 .categori-button:hover::before {
   width: 100%;
+}
+
+.categori-button-imdb::before {
+  background-color: #cbac05 !important;
 }
 
 .cinema-box {

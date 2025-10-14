@@ -18,7 +18,7 @@ const CategoriesSelect = ({ katalog }: { katalog: string }) => {
         </Link>
         <Link
           href="/filmler/imdb"
-          className={`w-fit duration-300 ${katalog === "imdb" ? "text-primary-50 underline" : "text-primary-200 categori-button opacity-50 hover:opacity-75"}`}
+          className={`w-fit duration-300 ${katalog === "imdb" ? "text-secondary-1 underline" : "text-secondary-2 categori-button categori-button-imdb opacity-50 hover:opacity-75"}`}
         >
           IMDB 100
         </Link>

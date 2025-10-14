@@ -22,8 +22,8 @@ const ImdbMovie = ({ movie }: { movie: Movie }) => {
       </div>
 
       <h2 className="text-center text-2xl font-semibold">{movie.title}</h2>
-      <div className="text-primary-50 flex flex-col text-center opacity-75">
-        <p>
+      <div className="text-primary-50 flex flex-col text-center">
+        <p className="opacity-85">
           {movie.genre.map((tur, index) => (
             <span key={tur}>
               {index !== 0 && "| "}
@@ -31,8 +31,8 @@ const ImdbMovie = ({ movie }: { movie: Movie }) => {
             </span>
           ))}
         </p>
-        <div className="flex items-center justify-center gap-x-4 text-3xl">
-          <LiaImdb fill="#f5c908" />{" "}
+        <div className="flex items-center justify-center gap-x-4 text-3xl opacity-90">
+          <LiaImdb fill="var(--color-secondary-1)" />{" "}
           <span className="text-2xl">{movie.rating}</span>
         </div>
       </div>

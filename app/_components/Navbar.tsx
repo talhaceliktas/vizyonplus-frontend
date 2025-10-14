@@ -1,13 +1,33 @@
+"use client";
+
 import Link from "next/link";
 import { FaCircleUser } from "react-icons/fa6";
+import { useEffect, useState } from "react";
 
 const Navbar = () => {
+  const [isTop, setIsTop] = useState(true);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsTop(window.scrollY === 0);
+    };
+
+    console.log(isTop);
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [isTop]);
+
   return (
-    <div className="bg-primary-900/30 fixed top-0 z-10 w-full">
-      <div className="flex items-center justify-between p-4 md:justify-around">
+    <div
+      className={`fixed top-0 z-10 w-full duration-300 ${isTop ? "" : "bg-primary-950/35 backdrop-blur-xl"}`}
+    >
+      <div
+        className={`flex items-center justify-between px-4 duration-300 md:justify-around ${isTop ? "py-6" : "py-4"}`}
+      >
         <Link
           href="/"
-          className="bg-gradient-to-l from-[#9e8704] via-[#cbac05] to-[#FFD700] bg-clip-text text-4xl font-bold text-transparent"
+          className="from-secondary-3 via-secondary-2 to-secondary-1 bg-gradient-to-l bg-clip-text text-4xl font-bold text-transparent"
         >
           Biletcim
         </Link>
