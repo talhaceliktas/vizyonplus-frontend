@@ -18,7 +18,7 @@ const SignIn = () => {
           <div className="relative w-full">
             <input
               type="email"
-              placeholder="johndoe@gmail.com"
+              placeholder="johnnysins@gmail.com"
               className="peer placeholder:text-primary-50/50 border-primary-500/80 w-full border-b-[3px] bg-transparent py-2 transition-all duration-300 outline-none focus:border-gray-600"
             />
             <FaUser className="peer-focus:fill-primary-50 fill-primary-300 absolute top-1/2 right-2 -translate-y-1/2 text-xl duration-300" />
