@@ -3,6 +3,8 @@
 import Link from "next/link";
 import { FaCircleUser } from "react-icons/fa6";
 import { useEffect, useState } from "react";
+import biletcimLogo from "../../public/logo.png";
+import Image from "next/image";
 
 const Navbar = () => {
   const [isTop, setIsTop] = useState(true);
@@ -25,11 +27,12 @@ const Navbar = () => {
       <div
         className={`flex items-center justify-between px-4 duration-300 md:justify-around ${isTop ? "py-6" : "py-4"}`}
       >
-        <Link
-          href="/"
-          className="from-secondary-3 via-secondary-2 to-secondary-1 bg-gradient-to-l bg-clip-text text-4xl font-bold text-transparent"
-        >
-          Biletcim
+        <Link href="/">
+          <Image
+            alt="Biletcim Logosu"
+            src={biletcimLogo}
+            className="w-32 sm:w-44"
+          />
         </Link>
         <div className="hidden items-center gap-x-5 font-semibold md:flex">
           <Link href="/filmler" className="hover:text-primary-200 duration-300">

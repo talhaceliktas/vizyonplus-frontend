@@ -4,6 +4,7 @@ import CategoriesFilter from "../../_components/CategoriesFilter";
 import CategoryContent from "../../_components/CategoryContent";
 import Loading from "../../loading";
 import MovieLoading from "../../_components/MovieLoading";
+import Footer from "../../_components/Footer";
 
 const Page = async ({ params }: { params: { katalog: string } }) => {
   const { katalog } = await params;
@@ -22,6 +23,7 @@ const Page = async ({ params }: { params: { katalog: string } }) => {
             </div>
           </div>
         </div>
+        <Footer />
       </div>
     </Suspense>
   );
