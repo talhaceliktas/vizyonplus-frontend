@@ -38,7 +38,10 @@ const SignIn = () => {
               <input type="checkbox" className="block" id="beniHatirla" />
               <label htmlFor="beniHatirla">Beni Hatırla</label>
             </div>
-            <Link href={""} className="block text-sm">
+            <Link
+              href={""}
+              className="hover:text-secondary-2 block text-sm duration-300"
+            >
               Şifremi Unuttum
             </Link>
           </div>
