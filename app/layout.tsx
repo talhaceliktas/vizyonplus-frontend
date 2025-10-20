@@ -3,6 +3,7 @@ import "./globals.css";
 import { poppins } from "./_lib/fontlar";
 
 import Navbar from "./_components/Navbar";
+import { Toaster } from "react-hot-toast";
 
 export const metadata: Metadata = {
   title: "Biletcim",
@@ -21,6 +22,10 @@ export default function RootLayout({
       >
         <Navbar />
         {children}
+        <Toaster
+          position="bottom-center"
+          toastOptions={{ style: { fontSize: "1.25rem" } }}
+        />
       </body>
     </html>
   );
