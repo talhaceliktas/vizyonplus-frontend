@@ -1,8 +1,8 @@
 import Image from "next/image";
-import { Movie } from "../types";
-import { randomDateNext30Days } from "../_helper/randomDate";
+import { Movie } from "../../types";
+import { randomDatePrevious30Days } from "../../_helper/rastgeleTarih";
 
-const UpcomingMovie = ({ movie }: { movie: Movie }) => {
+const Dizi = ({ movie }: { movie: Movie }) => {
   return (
     <div className="flex flex-col gap-y-4 overflow-hidden rounded-lg">
       <div className="relative aspect-[619/919] w-full">
@@ -27,8 +27,8 @@ const UpcomingMovie = ({ movie }: { movie: Movie }) => {
         </p>
         <p className="gap-x-4 text-lg">
           <span className="opacity-80">Vizyon Tarihi: </span>
-          <span className="text-primary-50 font-bold opacity-90">
-            {randomDateNext30Days()}
+          <span className="font-bold opacity-90">
+            {randomDatePrevious30Days()}
           </span>
         </p>
       </div>
@@ -36,4 +36,4 @@ const UpcomingMovie = ({ movie }: { movie: Movie }) => {
   );
 };
 
-export default UpcomingMovie;
+export default Dizi;

@@ -4,8 +4,8 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
-        source: "/filmler",
-        destination: "/filmler/vizyondakiler",
+        source: "/icerikler",
+        destination: "/icerikler/diziler",
         permanent: false,
       },
     ];

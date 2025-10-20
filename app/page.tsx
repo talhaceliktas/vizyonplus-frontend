@@ -1,11 +1,11 @@
 import Footer from "./_components/Footer";
-import Intro from "./_components/Intro";
-import TheatersBox from "./_components/TheatersBox";
+import Giris from "./_components/anasayfa/Giris";
+import TheatersBox from "./_components/anasayfa/TheatersBox";
 
 export default function Home() {
   return (
     <main>
-      <Intro />
+      <Giris />
       <TheatersBox />
       <Footer />
     </main>

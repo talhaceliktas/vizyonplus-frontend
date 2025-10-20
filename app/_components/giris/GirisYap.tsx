@@ -1,9 +1,9 @@
 import Link from "next/link";
-import { openSans } from "../_lib/fonts";
+import { openSans } from "../../_lib/fontlar";
 import { FaLock, FaUser } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 
-const SignIn = () => {
+const GirisYap = () => {
   return (
     <div
       className={`flex h-full w-full flex-col items-center justify-center gap-y-3 bg-cover bg-center p-5 ${openSans.className} `}
@@ -66,4 +66,4 @@ const SignIn = () => {
   );
 };
 
-export default SignIn;
+export default GirisYap;

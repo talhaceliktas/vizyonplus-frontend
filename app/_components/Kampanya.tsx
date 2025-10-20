@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { macondo } from "../_lib/fonts";
+import { macondo } from "../_lib/fontlar";
 
 const Kampanya = ({
   kampanyaDetaylari,

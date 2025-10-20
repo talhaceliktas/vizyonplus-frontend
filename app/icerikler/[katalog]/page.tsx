@@ -1,16 +1,17 @@
 import React, { Suspense } from "react";
-import CategoriesSelect from "../../_components/CategoriesSelect";
-import CategoriesFilter from "../../_components/CategoriesFilter";
-import CategoryContent from "../../_components/CategoryContent";
+import KategoriSecim from "../../_components/icerikler/KategoriSecim";
+import KategoriFiltre from "../../_components/icerikler/KategoriFiltre";
+import KategoriIcerik from "../../_components/icerikler/KategoriIcerik";
 import Loading from "../../loading";
-import MovieLoading from "../../_components/MovieLoading";
+import Yukleniyor from "../../_components/icerikler/Yukleniyor";
 import Footer from "../../_components/Footer";
 
 export async function generateStaticParams() {
   return [
-    { katalog: "vizyondakiler" },
+    { katalog: "diziler" },
+    { katalog: "filmler" },
     { katalog: "yakindakiler" },
-    { katalog: "imdb" },
+    { katalog: "begenilenler" },
   ];
 }
 
@@ -22,11 +23,11 @@ const Page = async ({ params }: { params: { katalog: string } }) => {
       <div className="mt-40">
         <div className="mx-auto w-full max-w-[1360px]">
           <div className="mx-4">
-            <CategoriesFilter />
+            <KategoriFiltre />
             <div className="mt-10 grid grid-cols-[auto_1fr] gap-x-10">
-              <CategoriesSelect katalog={katalog} />
-              <Suspense fallback={<MovieLoading />}>
-                <CategoryContent katalog={katalog} />
+              <KategoriSecim katalog={katalog} />
+              <Suspense fallback={<Yukleniyor />}>
+                <KategoriIcerik katalog={katalog} />
               </Suspense>
             </div>
           </div>

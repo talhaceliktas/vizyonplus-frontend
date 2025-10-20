@@ -1,7 +1,7 @@
-import type { Movie } from "../types";
-import UpcomingMovie from "./UpcomingMovie";
+import type { Movie } from "../../types";
+import Dizi from "./Dizi";
 
-const UpcomingMovies = async () => {
+const Diziler = async () => {
   const res = await fetch("https://imdb-top-100-movies.p.rapidapi.com/", {
     method: "GET",
     headers: {
@@ -16,10 +16,10 @@ const UpcomingMovies = async () => {
   return (
     <div className="bg-primary-700/15 grid grid-cols-3 gap-x-10 gap-y-20 p-10">
       {movies.map((movie: Movie) => (
-        <UpcomingMovie movie={movie} key={movie.imdbid} />
+        <Dizi movie={movie} key={movie.imdbid} />
       ))}
     </div>
   );
 };
 
-export default UpcomingMovies;
+export default Diziler;

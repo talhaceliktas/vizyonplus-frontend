@@ -2,7 +2,7 @@
 
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
-const CategoriesFilter = () => {
+const KategoriFiltre = () => {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -29,4 +29,4 @@ const CategoriesFilter = () => {
   );
 };
 
-export default CategoriesFilter;
+export default KategoriFiltre;

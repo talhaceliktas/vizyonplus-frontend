@@ -1,7 +1,7 @@
-import type { Movie } from "../types";
-import TheatersMovie from "./TheatersMovie";
+import type { Movie } from "../../types";
+import Film from "./Film";
 
-const TheatersMovies = async () => {
+const Filmler = async () => {
   const res = await fetch("https://imdb-top-100-movies.p.rapidapi.com/", {
     method: "GET",
     headers: {
@@ -16,10 +16,10 @@ const TheatersMovies = async () => {
   return (
     <div className="bg-primary-700/15 grid grid-cols-3 gap-x-10 gap-y-20 p-10">
       {movies.map((movie: Movie) => (
-        <TheatersMovie movie={movie} key={movie.imdbid} />
+        <Film movie={movie} key={movie.imdbid} />
       ))}
     </div>
   );
 };
 
-export default TheatersMovies;
+export default Filmler;

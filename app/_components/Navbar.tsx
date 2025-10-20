@@ -35,8 +35,11 @@ const Navbar = () => {
           />
         </Link>
         <div className="hidden items-center gap-x-5 font-semibold md:flex">
-          <Link href="/filmler" className="hover:text-primary-200 duration-300">
-            Filmler
+          <Link
+            href="/icerikler"
+            className="hover:text-primary-200 duration-300"
+          >
+            Dijital İçerikler
           </Link>
           <Link
             href="/kampanyalar"

@@ -3,10 +3,10 @@ import { MdOutlineDateRange } from "react-icons/md";
 import { FaRegClock } from "react-icons/fa";
 import { HiArrowNarrowRight } from "react-icons/hi";
 
-import marvelBanner from "../../public/marvelBanner.jpg";
-import marvelLogo from "../../public/marvelLogo.png";
+import marvelBanner from "../../../public/marvelBanner.jpg";
+import marvelLogo from "../../../public/marvelLogo.png";
 
-const Intro = () => {
+const Giris = () => {
   return (
     <div className="relative">
       <div className="h-screen">
@@ -59,4 +59,4 @@ const Intro = () => {
   );
 };
 
-export default Intro;
+export default Giris;

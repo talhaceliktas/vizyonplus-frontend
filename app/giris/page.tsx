@@ -1,10 +1,10 @@
-import SignIn from "../_components/SignIn";
+import GirisYap from "../_components/giris/GirisYap";
 
 const Page = () => {
   return (
     <div className="h-screen w-full">
       <div className="dis-kutu h-full w-full rounded-2xl bg-gray-50">
-        <SignIn />
+        <GirisYap />
       </div>
     </div>
   );

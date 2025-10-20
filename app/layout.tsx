@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { poppins } from "./_lib/fonts";
+import { poppins } from "./_lib/fontlar";
 
 import Navbar from "./_components/Navbar";
 
