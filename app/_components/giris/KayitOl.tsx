@@ -76,6 +76,7 @@ const KayitOl = () => {
             />
             <button
               className="cursor-pointer"
+              type="button"
               onClick={() => setParola1Gizli((durum) => !durum)}
             >
               {parola1Gizli ? (
@@ -96,6 +97,7 @@ const KayitOl = () => {
             />
             <button
               className="cursor-pointer"
+              type="button"
               onClick={() => setParola2Gizli((durum) => !durum)}
             >
               {parola2Gizli ? (
