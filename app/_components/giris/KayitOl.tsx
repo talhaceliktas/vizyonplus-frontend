@@ -11,15 +11,21 @@ import { useForm } from "react-hook-form";
 import { signUp } from "../../_utils/auth";
 import toast from "react-hot-toast";
 
+type kayitVerisi = {
+  email: string;
+  parola1: string;
+  parola2: string;
+};
+
 const KayitOl = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm<kayitVerisi>();
 
   // hata yoksa bu fonksiyon calisir
-  function kayitOl(data: any) {
+  function kayitOl(data: kayitVerisi) {
     signUp(data.email, data.parola1);
   }
 
