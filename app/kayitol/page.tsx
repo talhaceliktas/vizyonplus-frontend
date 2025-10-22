@@ -1,10 +1,22 @@
-import KayitOl from "../_components/giris/KayitOl";
+"use client";
+
+import { useState } from "react";
+import KayitOl from "../_components/giris-kayit/KayitOl";
+import KayitTamamlandi from "../_components/giris-kayit/KayitTamamlandi";
+import { openSans } from "../_lib/fontlar";
 
 const Page = () => {
+  const [kayitTamamlandi, setKayitTamamlandi] = useState(true);
+
   return (
     <div className="h-screen w-full">
       <div className="dis-kutu h-full w-full rounded-2xl bg-gray-50">
-        <KayitOl />
+        <div
+          className={`flex h-full w-full flex-col items-center justify-center gap-y-3 bg-cover bg-center p-5 ${openSans.className} `}
+          style={{ backgroundImage: "url('/loginBG.webp')" }}
+        >
+          {kayitTamamlandi ? <KayitTamamlandi /> : <KayitOl />}
+        </div>
       </div>
     </div>
   );

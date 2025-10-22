@@ -1,4 +1,4 @@
-import GirisYap from "../_components/giris/GirisYap";
+import GirisYap from "../_components/giris-kayit/GirisYap";
 
 const Page = () => {
   return (
