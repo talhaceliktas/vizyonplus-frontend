@@ -5,6 +5,8 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Movie } from "../../types";
+import Link from "next/link";
+import ProgressBar from "../ProgressBar";
 
 interface TheatersSliderProps {
   movies: Movie[];
@@ -16,7 +18,12 @@ const TheatersSlider = ({ movies }: TheatersSliderProps) => {
     infinite: true,
     speed: 500,
     slidesToShow: 5,
-    slidesToScroll: 2,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 2500,
+    cssEase: "ease-in",
+    pauseOnHover: true,
+    swipeToSlide: true,
     responsive: [
       {
         breakpoint: 1080,
@@ -37,7 +44,15 @@ const TheatersSlider = ({ movies }: TheatersSliderProps) => {
 
   return (
     <div className="w-full p-10">
-      <h3 className="mb-4 pl-2 text-2xl">Vizyondaki Filmler</h3>
+      <div className="mb-4 flex justify-between">
+        <h3 className="text-2xl">Vizyondaki Filmler</h3>
+        <Link
+          className="hover:text-secondary-1 text-lg duration-300"
+          href="/icerikler/filmler"
+        >
+          Tümünü Gör
+        </Link>
+      </div>
       <Slider {...settings}>
         {movies.map((movie) => (
           <div key={movie.id} className="p-2">
