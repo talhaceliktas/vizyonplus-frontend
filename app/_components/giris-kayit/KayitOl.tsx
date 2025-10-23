@@ -7,7 +7,7 @@ import { IoMdMail } from "react-icons/io";
 import { FaEye, FaEyeSlash } from "react-icons/fa6";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { signUp } from "../../_utils/auth";
+import { signUp } from "../../_lib/auth";
 import toast from "react-hot-toast";
 
 const KayitOl = ({ setGonderilenEmail, setKayitTamamlandi }) => {
