@@ -4,6 +4,7 @@ import { poppins } from "./_lib/fontlar";
 
 import Navbar from "./_components/Navbar";
 import { Toaster } from "react-hot-toast";
+import { AuthProvider } from "./_context/AuthContext";
 
 export const metadata: Metadata = {
   title: "Biletcim",
@@ -20,9 +21,11 @@ export default function RootLayout({
       <body
         className={`from-primary-900 via-primary-800 to-primary-900 min-h-screen bg-gradient-to-l antialiased ${poppins.className}`}
       >
-        <Navbar />
-        {children}
-        <Toaster position="bottom-right" />
+        <AuthProvider>
+          <Navbar />
+          {children}
+          <Toaster position="bottom-right" />
+        </AuthProvider>
       </body>
     </html>
   );

@@ -44,10 +44,19 @@ export async function signIn(email: string, password: string) {
     password: password,
   });
 
-  if (error) {
-    console.log(error);
-    return;
+  if (error?.status === 400) {
+    return {
+      durum: "basarisiz",
+      message: "Email veya şifre yanlış!",
+    };
   }
 
-  redirect("/profile");
+  if (error) {
+    return {
+      durum: "basarisiz",
+      message: "Bilinmeyen bir hata oluştu!",
+    };
+  }
+
+  redirect("/profil");
 }

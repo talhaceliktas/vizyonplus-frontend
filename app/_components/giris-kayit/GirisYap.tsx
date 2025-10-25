@@ -7,6 +7,7 @@ import { FcGoogle } from "react-icons/fc";
 import { IoMdMail } from "react-icons/io";
 import { useForm } from "react-hook-form";
 import { signIn } from "../../_lib/auth";
+import toast from "react-hot-toast";
 
 const GirisYap = () => {
   const {
@@ -15,10 +16,14 @@ const GirisYap = () => {
     handleSubmit,
   } = useForm();
 
-  function girisYap(data: { email: string; password: string }) {
+  async function girisYap(data: { email: string; password: string }) {
     const { email, password } = data;
 
-    signIn(email, password);
+    const veri = await signIn(email, password);
+
+    if (veri.durum === "basarisiz") {
+      toast.error(veri.message);
+    }
   }
 
   function hataVar() {
