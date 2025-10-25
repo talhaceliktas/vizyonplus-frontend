@@ -1,13 +1,23 @@
 "use client";
 
 import Link from "next/link";
-import { FaCircleUser } from "react-icons/fa6";
-import { useEffect, useState } from "react";
+import { FaCircleUser, FaUser } from "react-icons/fa6";
+import { useEffect, useState, useRef } from "react";
 import biletcimLogo from "../../public/logo.png";
 import Image from "next/image";
+import AsagiAcilirMenu from "./AsagiAcilirMenu";
+import { useAuth } from "../_context/AuthContext";
+import { FaUserCircle } from "react-icons/fa";
 
 const Navbar = () => {
+  const { user } = useAuth();
+
   const [isTop, setIsTop] = useState(true);
+  // 1. Dropdown menünün durumunu tutmak için state
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+  // 2. Dışarıya tıklamayı algılamak için ref
+  const dropdownRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,14 +26,36 @@ const Navbar = () => {
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [isTop]);
+  }, []); // isTop bağımlılığını kaldırdım, gereksiz yeniden render'ı önler
 
+  // 3. Dışarıya tıklanınca menüyü kapatan useEffect
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      // Eğer tıklanan yer dropdownRef'in (menü ve ikonun) dışındaysa
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsDropdownOpen(false); // Menüyü kapat
+      }
+    };
+
+    // Event listener'ı ekle
+    document.addEventListener("mousedown", handleClickOutside);
+    // Component kaldırıldığında listener'ı temizle
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []); // Bu effect sadece bir kez çalışmalı
+
+  console.log(user);
   return (
     <div
-      className={`fixed top-0 z-10 w-full duration-300 ${isTop ? "" : "bg-primary-950/35 backdrop-blur-xl"}`}
+      className={`fixed top-0 z-10 w-full duration-300 ${
+        isTop ? "" : "bg-primary-950/35 backdrop-blur-xl"
+      }`}
     >
       <div
-        className={`flex items-center justify-between px-4 duration-300 md:justify-around ${isTop ? "py-6" : "py-4"}`}
+        className={`flex items-center justify-between px-4 duration-300 md:justify-around ${
+          isTop ? "py-6" : "py-4"
+        }`}
       >
         <Link href="/">
           <Image
@@ -51,9 +83,41 @@ const Navbar = () => {
             placeholder="Ara..."
           />
         </div>
-        <Link href="/giris" className="cursor-pointer">
-          <FaCircleUser className="text-3xl" />
-        </Link>
+
+        {/* Konumlandırma için bir container ve ref ataması */}
+        <div className="relative" ref={dropdownRef}>
+          {/* İkonu bir butona çeviriyoruz. Tıklanınca state'i değiştirir. */}
+          <div className="flex">
+            <button
+              onClick={() => setIsDropdownOpen(!isDropdownOpen)} // Tıklanınca durumu tersine çevir
+              className="cursor-pointer"
+            >
+              <div
+                className={
+                  user?.user_metadata?.display_name &&
+                  "flex items-center gap-x-2"
+                }
+              >
+                {user?.user_metadata?.display_name ? (
+                  <>
+                    <Image
+                      src="https://avatar.iran.liara.run/public"
+                      alt=""
+                      width={40}
+                      height={40}
+                    />
+                    <p>{user?.user_metadata?.display_name}</p>
+                  </>
+                ) : (
+                  <FaUserCircle className="h-8 w-8" />
+                )}
+              </div>
+            </button>
+
+            {/* State true ise menüyü göster */}
+            {isDropdownOpen && <AsagiAcilirMenu />}
+          </div>
+        </div>
       </div>
     </div>
   );

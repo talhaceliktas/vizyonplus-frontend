@@ -1,21 +1,14 @@
 "use client";
 
+import { redirect } from "next/navigation";
 import { useAuth } from "../_context/AuthContext";
 
 const Page = () => {
-  const { user, signOut } = useAuth();
+  const { user } = useAuth();
 
-  return (
-    <div>
-      {user ? (
-        <div className="mt-40">
-          Giris yapildi <button onClick={signOut}>Cikis yap</button>
-        </div>
-      ) : (
-        "Giris yapilamadi"
-      )}
-    </div>
-  );
+  if (!user) redirect("/giris");
+
+  return <div>fdsg</div>;
 };
 
 export default Page;

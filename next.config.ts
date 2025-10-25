@@ -11,7 +11,11 @@ const nextConfig: NextConfig = {
     ];
   },
   images: {
-    domains: ["m.media-amazon.com", "egkrjlxptyomswdanwbw.supabase.co"],
+    domains: [
+      "m.media-amazon.com",
+      "egkrjlxptyomswdanwbw.supabase.co",
+      "avatar.iran.liara.run",
+    ],
   },
 };
 
