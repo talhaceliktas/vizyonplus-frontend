@@ -8,10 +8,8 @@ const supabase = createClient(
 // let calistiMi = false;
 
 export async function veritabaninaEkle() {
-  const { data, error } = await supabase.from("icerikler").select();
-
-  console.log(data);
-
+  // const { data, error } = await supabase.from("icerikler").select();
+  // console.log(data);
   // if (calistiMi) return;
   // const url =
   //   "https://movie-database-api1.p.rapidapi.com/list_movies.json?limit=20&page=&quality=all&genre=all&minimum_rating=0&query_term=0&sort_by=date_added&order_by=desc&with_rt_ratings=false";
