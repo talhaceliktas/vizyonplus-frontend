@@ -1,9 +1,5 @@
-"use client";
-
-import { redirect } from "next/navigation";
-
 const Page = () => {
-  return <div>fdsg</div>;
+  return <div>Profil</div>;
 };
 
 export default Page;

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import Link from "next/link";
 import { ImExit } from "react-icons/im";
 import { FaUser } from "react-icons/fa6";
@@ -8,7 +8,15 @@ import { VscSignIn } from "react-icons/vsc";
 const AsagiAcilirMenu = () => {
   const { user } = { user: "sdfasd" };
 
-  const MenuLink = ({ href, children, icon }) => (
+  const MenuLink = ({
+    href,
+    children,
+    icon,
+  }: {
+    href: string;
+    children: ReactNode;
+    icon: ReactNode;
+  }) => (
     <Link
       href={href}
       className="text-primary-100 hover:bg-primary-700 flex w-full items-center justify-between px-4 py-2 text-left text-base"

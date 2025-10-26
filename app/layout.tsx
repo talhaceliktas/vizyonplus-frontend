@@ -4,7 +4,6 @@ import { poppins } from "./_lib/fontlar";
 
 import Navbar from "./_components/Navbar";
 import { Toaster } from "react-hot-toast";
-import { AuthProvider } from "./_context/AuthContext";
 
 export const metadata: Metadata = {
   title: "Biletcim",
