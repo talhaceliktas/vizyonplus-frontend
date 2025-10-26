@@ -1,4 +1,4 @@
-import supabase from "./supabase";
+import supabase from "./supabase/client";
 
 export async function filmleriGetir() {
   const { data: filmler, error } = await supabase

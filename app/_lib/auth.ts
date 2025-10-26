@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation";
-import supabase from "./supabase";
+import supabase from "./supabase/client";
 
 export async function signUp(
   gelenIsim: string,
