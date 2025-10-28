@@ -1,3 +1,4 @@
+import { FilmDetay } from "../types";
 import supabaseServer from "./supabase/server";
 
 export async function filmleriGetir() {
@@ -16,7 +17,7 @@ export async function filmleriGetir() {
     return [];
   }
 
-  return filmler;
+  return filmler as FilmDetay[];
 }
 
 export async function filmiGetir(filmId: number) {
