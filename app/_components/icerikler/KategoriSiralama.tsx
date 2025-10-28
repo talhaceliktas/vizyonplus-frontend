@@ -1,8 +1,11 @@
 "use client";
 
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { useState } from "react";
 
 const KategoriSiralama = () => {
+  const [siralama, setSiralama] = useState("alfabetikAZ");
+
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -11,6 +14,15 @@ const KategoriSiralama = () => {
     const params = new URLSearchParams(searchParams);
     params.set("siralama", siralama);
     router.push(`${pathname}?${params.toString()}`);
+    setSiralama(params.get("siralama"));
+  };
+
+  const Secenek = ({ value, label }) => {
+    return (
+      <option value={value} className="text-primary-800">
+        {label}
+      </option>
+    );
   };
 
   return (
@@ -18,25 +30,16 @@ const KategoriSiralama = () => {
       name="Filtre"
       className="text-primary-50 ml-auto block"
       onChange={(e) => handleFilter(e.target.value)}
+      value={siralama}
     >
-      <option value="vizyonArtan" className="text-primary-800">
-        Vizyon Tarihi (Artan)
-      </option>
-      <option value="vizyonAzalan" className="text-primary-800">
-        Vizyon Tarihi (Azalan)
-      </option>
-      <option value="puanArtan" className="text-primary-800">
-        Puana Gore (Artan)
-      </option>
-      <option value="puanAzalan" className="text-primary-800">
-        Puana Gore (Azalan)
-      </option>
-      <option value="alfabetikAZ" className="text-primary-800">
-        A-Z
-      </option>
-      <option value="alfabetikZA" className="text-primary-800">
-        Z-A
-      </option>
+      <Secenek value="alfabetikAZ" label="Alfabetik (A - Z)" />
+      <Secenek value="alfabetikZA" label="Alfabetik (Z - A)" />
+      <Secenek value="fiyataGoreArtan" label="Fiyata Göre (Artan)" />
+      <Secenek value="fiyataGoreAzalan" label="Fiyata Göre (Azalan)" />
+      <Secenek value="vizyonArtan" label="Vizyon Tarihi (Artan)" />
+      <Secenek value="vizyonAzalan" label="Vizyon Tarihi (Azalan))" />
+      <Secenek value="puanArtan" label="Puana Gore (Artan)" />
+      <Secenek value="puanAzalan" label="Puana Gore (Azalan)" />
     </select>
   );
 };

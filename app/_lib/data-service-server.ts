@@ -5,7 +5,9 @@ export async function filmleriGetir() {
 
   const { data: filmler, error } = await supabase
     .from("icerikler")
-    .select("isim, fotograf, turler, id")
+    .select(
+      "isim, fotograf, turler, id, film_ucretleri(satin_alma_ucreti, indirim_orani, ogrenci_indirim_orani)",
+    )
     .eq("tur", "film");
 
   if (error) {

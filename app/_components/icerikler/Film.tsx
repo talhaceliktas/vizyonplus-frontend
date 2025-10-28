@@ -1,8 +1,8 @@
 import Image from "next/image";
-import { FilmTipi } from "../../types";
+import { FilmDetay } from "../../types";
 import Link from "next/link";
 
-const Film = ({ film }: { film: FilmTipi }) => {
+const Film = ({ film }: { film: FilmDetay }) => {
   return (
     <Link
       className="flex flex-col gap-y-2 overflow-hidden rounded-lg grayscale-25 duration-300 hover:scale-110 hover:grayscale-0"
@@ -17,7 +17,7 @@ const Film = ({ film }: { film: FilmTipi }) => {
           loading="lazy"
         />
       </div>
-
+      <h2 className="text-center text-xl font-semibold">{film.isim}</h2>
       <div className="text-primary-50 flex flex-col text-center">
         <p className="opacity-75">
           {film.turler.map((tur, index) => (
@@ -28,7 +28,24 @@ const Film = ({ film }: { film: FilmTipi }) => {
           ))}
         </p>
       </div>
-      <h2 className="text-center text-xl font-semibold">{film.isim}</h2>
+      {film.film_ucretleri[0].indirim_orani ? (
+        <div className="flex justify-center gap-x-6 opacity-90">
+          <span className="line-through opacity-70">
+            {film.film_ucretleri[0].satin_alma_ucreti} TL
+          </span>
+          <span>
+            {(
+              (film.film_ucretleri[0].satin_alma_ucreti / 100) *
+              (100 - film.film_ucretleri[0].indirim_orani)
+            ).toFixed(2)}{" "}
+            TL
+          </span>
+        </div>
+      ) : (
+        <p className="text-center opacity-95">
+          {film.film_ucretleri[0].satin_alma_ucreti} TL
+        </p>
+      )}
     </Link>
   );
 };

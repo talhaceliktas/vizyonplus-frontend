@@ -24,3 +24,13 @@ export interface FilmTipi {
   yonetmen: string;
   yayinlanma_tarihi: string;
 }
+
+export interface FilmUcretleri {
+  indirim_orani: number;
+  ogrenci_indirim_orani: number;
+  satin_alma_ucreti: number;
+}
+
+export type FilmDetay = FilmTipi & {
+  film_ucretleri: FilmUcretleri[];
+};
