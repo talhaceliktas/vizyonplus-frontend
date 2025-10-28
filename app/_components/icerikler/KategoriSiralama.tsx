@@ -7,9 +7,9 @@ const KategoriSiralama = () => {
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
-  const handleFilter = (filtre: string) => {
+  const handleFilter = (siralama: string) => {
     const params = new URLSearchParams(searchParams);
-    params.set("filtre", filtre);
+    params.set("siralama", siralama);
     router.push(`${pathname}?${params.toString()}`);
   };
 
