@@ -1,4 +1,4 @@
-import { filmleriGetir } from "../../_lib/data-service";
+import { filmleriGetir } from "../../_lib/data-service-server";
 import type { FilmTipi } from "../../types";
 import Film from "./Film";
 

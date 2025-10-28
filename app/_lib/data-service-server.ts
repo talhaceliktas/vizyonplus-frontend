@@ -1,4 +1,3 @@
-import supabaseClient from "./supabase/client";
 import supabaseServer from "./supabase/server";
 
 export async function filmleriGetir() {

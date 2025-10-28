@@ -5,6 +5,7 @@ import KategoriIcerik from "../../_components/icerikler/KategoriIcerik";
 import Loading from "../../loading";
 import Yukleniyor from "../../_components/icerikler/Yukleniyor";
 import Footer from "../../_components/Footer";
+import IcerikTurFiltre from "../../_components/icerikler/IcerikTurFiltre";
 
 export async function generateStaticParams() {
   return [
@@ -25,7 +26,10 @@ const Page = async ({ params }: { params: { katalog: string } }) => {
           <div className="mx-4">
             <KategoriSiralama />
             <div className="mt-10 grid grid-cols-[auto_1fr] gap-x-10">
-              <KategoriSecim katalog={katalog} />
+              <div>
+                <KategoriSecim katalog={katalog} />
+                <IcerikTurFiltre />
+              </div>
               <Suspense fallback={<Yukleniyor />}>
                 <KategoriIcerik katalog={katalog} />
               </Suspense>

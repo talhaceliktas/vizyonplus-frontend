@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import { filmiGetir } from "../../../_lib/data-service";
+import { filmiGetir } from "../../../_lib/data-service-server";
 import { FilmTipi } from "../../../types";
 import Loading from "../../../loading";
 import Image from "next/image";
