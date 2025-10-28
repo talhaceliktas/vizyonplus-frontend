@@ -1,17 +1,10 @@
 import { filmleriGetir } from "../../_lib/data-service-server";
-import type { FilmTipi } from "../../types";
-import Film from "./Film";
+import FilmKonteynir from "./FilmKonteynir";
 
 const Filmler = async () => {
   const filmler = await filmleriGetir();
 
-  return (
-    <div className="bg-primary-700/15 grid grid-cols-3 gap-x-10 gap-y-20 p-10">
-      {filmler.map((film: FilmTipi) => (
-        <Film film={film} key={film.id} />
-      ))}
-    </div>
-  );
+  return <FilmKonteynir filmler={filmler} />;
 };
 
 export default Filmler;
