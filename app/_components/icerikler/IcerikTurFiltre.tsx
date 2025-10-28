@@ -2,13 +2,14 @@
 
 import { useEffect, useState } from "react";
 import { turleriGetir } from "../../_lib/data-service-client";
-import { useSearchParams, useRouter } from "next/navigation";
+import { useSearchParams, useRouter, usePathname } from "next/navigation";
 
 const IcerikTurFiltre = () => {
   const [icerikTurleri, setIcerikTurleri] = useState(null);
 
   const searchParams = useSearchParams();
   const router = useRouter();
+  const pathname = usePathname();
   const [turler, setTurler] = useState<string[]>([]);
 
   useEffect(() => {
@@ -27,14 +28,21 @@ const IcerikTurFiltre = () => {
   }, [searchParams]);
 
   const checkBoxTiklandi = (tur: string) => {
+    const params = new URLSearchParams(searchParams);
+
     const yeniTurler = turler.includes(tur)
       ? turler.filter((t) => t !== tur)
       : [...turler, tur];
 
     setTurler(yeniTurler);
 
-    const query = yeniTurler.length ? `?tur=${yeniTurler.join(",")}` : "";
-    router.push(`/icerikler/filmler/${query}`);
+    if (yeniTurler.length) {
+      params.set("tur", yeniTurler.join(","));
+    } else {
+      params.set("tur", "");
+    }
+
+    router.push(`${pathname}?${params.toString()}`);
   };
 
   return (

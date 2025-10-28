@@ -37,7 +37,7 @@ const KategoriSiralama = () => {
       <Secenek value="fiyataGoreArtan" label="Fiyata Göre (Artan)" />
       <Secenek value="fiyataGoreAzalan" label="Fiyata Göre (Azalan)" />
       <Secenek value="vizyonArtan" label="Vizyon Tarihi (Artan)" />
-      <Secenek value="vizyonAzalan" label="Vizyon Tarihi (Azalan))" />
+      <Secenek value="vizyonAzalan" label="Vizyon Tarihi (Azalan)" />
       <Secenek value="puanArtan" label="Puana Gore (Artan)" />
       <Secenek value="puanAzalan" label="Puana Gore (Azalan)" />
     </select>
