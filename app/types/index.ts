@@ -18,6 +18,7 @@ export interface FilmTipi {
   fotograf: string;
   id: number;
   isim: string;
+  tur: string;
   olusturulma_zamani: string;
   sure: number;
   turler: string[];

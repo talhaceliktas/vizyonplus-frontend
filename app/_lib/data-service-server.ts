@@ -37,3 +37,26 @@ export async function filmiGetir(filmId: number) {
 
   return filmler;
 }
+
+export async function favorileriGetir() {
+  const supabase = await supabaseServer();
+
+  // Kullanıcıyı al
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+  if (!user) return [];
+
+  // Favorileri getir
+  const { data: favoriler, error } = await supabase
+    .from("favoriler")
+    .select("*")
+    .eq("kullanici_id", user.id);
+
+  if (error) {
+    console.error(error);
+    return [];
+  }
+
+  return favoriler || [];
+}

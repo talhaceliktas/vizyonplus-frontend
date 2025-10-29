@@ -22,7 +22,8 @@ const FavorilereEkleButton = ({ icerik_id }) => {
     isaretliMiKontrol();
   }, [icerik_id]);
 
-  async function favoriyeEkleTiklandi() {
+  async function favoriyeEkleTiklandi(e) {
+    e.preventDefault();
     setIsLoading(true);
     await favorilereEkle(icerik_id);
     setIsaretliMi(await favoriIsaretliMi(icerik_id));
@@ -32,20 +33,20 @@ const FavorilereEkleButton = ({ icerik_id }) => {
   return (
     <button
       className={`text-4xl ${isLoading ? "cursor-not-allowed" : "cursor-pointer"}`}
-      onClick={favoriyeEkleTiklandi}
+      onClick={(e) => favoriyeEkleTiklandi(e)}
       disabled={isLoading}
     >
       {isLoading ? (
         <MiniYukleniyor color="var(--color-secondary-1)" />
       ) : isaretliMi ? (
         <FaHeart
-          fill="var(--color-secondary-1)"
+          fill="var(--color-secondary-1-2)"
           stroke="var(--color-secondary-3)"
           strokeWidth={15}
         />
       ) : (
         <FaRegHeart
-          fill="var(--color-secondary-1)"
+          fill="var(--color-secondary-1-2)"
           stroke="var(--color-secondary-3)"
           strokeWidth={15}
         />

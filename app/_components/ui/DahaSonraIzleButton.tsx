@@ -1,20 +1,12 @@
 "use client";
 
-import {
-  FaBookmark,
-  FaHeart,
-  FaRegBookmark,
-  FaRegHeart,
-} from "react-icons/fa6";
+import { FaBookmark, FaRegBookmark } from "react-icons/fa6";
 import {
   dahaSonraIzleIsaretliMi,
   dahaSonraIzleEkle,
 } from "../../_lib/data-service-client";
 import { useEffect, useState } from "react";
 import MiniYukleniyor from "./MiniYukleniyor";
-import { FaPlus } from "react-icons/fa";
-import { LuCalendarCheck, LuCalendarOff, LuCalendarPlus } from "react-icons/lu";
-import { BsBookmarkCheck, BsBookmarkPlus } from "react-icons/bs";
 
 const DahaSonraIzleButton = ({ icerik_id }) => {
   const [isaretliMi, setIsaretliMi] = useState(false);
@@ -47,13 +39,13 @@ const DahaSonraIzleButton = ({ icerik_id }) => {
         <MiniYukleniyor color="var(--color-secondary-1)" />
       ) : isaretliMi ? (
         <FaBookmark
-          fill="var(--color-secondary-1)"
+          fill="var(--color-secondary-1-2)"
           stroke="var(--color-secondary-3)"
           strokeWidth={15}
         />
       ) : (
         <FaRegBookmark
-          fill="var(--color-secondary-1)"
+          fill="var(--color-secondary-1-2)"
           stroke="var(--color-secondary-3)"
           strokeWidth={15}
         />

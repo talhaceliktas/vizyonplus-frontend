@@ -10,6 +10,7 @@ import FavorilereEkleButton from "../../../_components/ui/FavorilereEkleButton";
 import DahaSonraIzleButton from "../../../_components/ui/DahaSonraIzleButton";
 import supabaseServerClient from "../../../_lib/supabase/server";
 import Link from "next/link";
+import { FaRegBookmark, FaRegHeart } from "react-icons/fa6";
 
 const Page = async ({ params }) => {
   const { filmId } = await params;
@@ -69,12 +70,22 @@ const Page = async ({ params }) => {
                   <DahaSonraIzleButton icerik_id={film.id} />
                 </>
               ) : (
-                <Link
-                  href="/giris"
-                  className="text-secondary-3 hover:text-secondary-2 text-lg duration-300"
-                >
-                  Favorilere eklemek için giriş yap!
-                </Link>
+                <>
+                  <Link href="/giris" className="text-4xl">
+                    <FaRegHeart
+                      fill="var(--color-secondary-1)"
+                      stroke="var(--color-secondary-3)"
+                      strokeWidth={15}
+                    />
+                  </Link>
+                  <Link href="/giris" className="text-4xl">
+                    <FaRegBookmark
+                      fill="var(--color-secondary-1)"
+                      stroke="var(--color-secondary-3)"
+                      strokeWidth={15}
+                    />
+                  </Link>
+                </>
               )}
             </div>
           </div>
