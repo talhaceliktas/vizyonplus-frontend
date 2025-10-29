@@ -41,7 +41,7 @@ const IcerikTurFiltre = () => {
     if (yeniTurler.length) {
       params.set("tur", yeniTurler.join(","));
     } else {
-      params.set("tur", "");
+      params.delete("tur");
     }
 
     router.push(`${pathname}?${params.toString()}`);
@@ -50,7 +50,7 @@ const IcerikTurFiltre = () => {
   const filtreleriTemizle = () => {
     const params = new URLSearchParams(searchParams);
 
-    params.set("tur", "");
+    params.delete("tur");
 
     router.push(`${pathname}?${params.toString()}`);
   };

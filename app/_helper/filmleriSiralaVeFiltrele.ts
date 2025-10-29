@@ -15,10 +15,7 @@ export default function filmleriSiralaVeFiltrele(filtreler, filmler, siralama) {
     ayarlanmisFilmler.sort((a, b) => b.isim.localeCompare(a.isim));
   } else if (siralama === "fiyataGoreArtan") {
     ayarlanmisFilmler.sort(
-      (
-        a,
-        b, // 100  - 20
-      ) =>
+      (a, b) =>
         (a.film_ucretleri[0].satin_alma_ucreti *
           (100 - a.film_ucretleri[0].indirim_orani)) /
           100 -
