@@ -7,6 +7,7 @@ import Footer from "../../../_components/Footer";
 import { MdDateRange } from "react-icons/md";
 import { LuTimer } from "react-icons/lu";
 import FavorilereEkleButton from "../../../_components/ui/FavorilereEkleButton";
+import DahaSonraIzleButton from "../../../_components/ui/DahaSonraIzleButton";
 
 const Page = async ({ params }) => {
   const { filmId } = await params;
@@ -57,6 +58,7 @@ const Page = async ({ params }) => {
             <p className="text-lg">{film.aciklama}</p>
             <div className="flex justify-end">
               <FavorilereEkleButton icerik_id={film.id} />
+              <DahaSonraIzleButton icerik_id={film.id} />
             </div>
           </div>
         </div>

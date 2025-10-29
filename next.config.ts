@@ -11,11 +11,23 @@ const nextConfig: NextConfig = {
     ];
   },
   images: {
-    domains: [
-      "m.media-amazon.com",
-      "egkrjlxptyomswdanwbw.supabase.co",
-      "avatar.iran.liara.run",
-      "yts.mx",
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "m.media-amazon.com",
+      },
+      {
+        protocol: "https",
+        hostname: "egkrjlxptyomswdanwbw.supabase.co",
+      },
+      {
+        protocol: "https",
+        hostname: "avatar.iran.liara.run",
+      },
+      {
+        protocol: "https",
+        hostname: "yts.mx",
+      },
     ],
   },
 };

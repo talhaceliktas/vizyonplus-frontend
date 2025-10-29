@@ -1,21 +1,29 @@
 "use client";
 
-import { FaHeart, FaRegHeart } from "react-icons/fa6";
 import {
-  favoriIsaretliMi,
-  favorilereEkle,
+  FaBookmark,
+  FaHeart,
+  FaRegBookmark,
+  FaRegHeart,
+} from "react-icons/fa6";
+import {
+  dahaSonraIzleIsaretliMi,
+  dahaSonraIzleEkle,
 } from "../../_lib/data-service-client";
 import { useEffect, useState } from "react";
 import MiniYukleniyor from "./MiniYukleniyor";
+import { FaPlus } from "react-icons/fa";
+import { LuCalendarCheck, LuCalendarOff, LuCalendarPlus } from "react-icons/lu";
+import { BsBookmarkCheck, BsBookmarkPlus } from "react-icons/bs";
 
-const FavorilereEkleButton = ({ icerik_id }) => {
+const DahaSonraIzleButton = ({ icerik_id }) => {
   const [isaretliMi, setIsaretliMi] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const isaretliMiKontrol = async () => {
       setIsLoading(true);
-      setIsaretliMi(await favoriIsaretliMi(icerik_id));
+      setIsaretliMi(await dahaSonraIzleIsaretliMi(icerik_id));
       setIsLoading(false);
     };
 
@@ -24,27 +32,27 @@ const FavorilereEkleButton = ({ icerik_id }) => {
 
   async function favoriyeEkleTiklandi() {
     setIsLoading(true);
-    await favorilereEkle(icerik_id);
-    setIsaretliMi(await favoriIsaretliMi(icerik_id));
+    await dahaSonraIzleEkle(icerik_id);
+    setIsaretliMi(await dahaSonraIzleIsaretliMi(icerik_id));
     setIsLoading(false);
   }
 
   return (
     <button
-      className={`text-4xl ${isLoading ? "cursor-not-allowed" : "cursor-pointer"}`}
+      className={`text-[1.95rem] ${isLoading ? "cursor-not-allowed" : "cursor-pointer"}`}
       onClick={favoriyeEkleTiklandi}
       disabled={isLoading}
     >
       {isLoading ? (
         <MiniYukleniyor color="var(--color-secondary-1)" />
       ) : isaretliMi ? (
-        <FaHeart
+        <FaBookmark
           fill="var(--color-secondary-1)"
           stroke="var(--color-secondary-3)"
           strokeWidth={15}
         />
       ) : (
-        <FaRegHeart
+        <FaRegBookmark
           fill="var(--color-secondary-1)"
           stroke="var(--color-secondary-3)"
           strokeWidth={15}
@@ -54,4 +62,4 @@ const FavorilereEkleButton = ({ icerik_id }) => {
   );
 };
 
-export default FavorilereEkleButton;
+export default DahaSonraIzleButton;

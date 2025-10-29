@@ -1,9 +1,9 @@
 import { MoonLoader } from "react-spinners";
 
-const MiniYukleniyor = () => {
+const MiniYukleniyor = ({ color }) => {
   return (
     <div className="flex h-full items-center justify-center">
-      <MoonLoader size={30} color="var(--color-secondary-1)" />
+      <MoonLoader size={30} color={color} />
     </div>
   );
 };
