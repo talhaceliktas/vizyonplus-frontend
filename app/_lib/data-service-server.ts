@@ -60,3 +60,26 @@ export async function favorileriGetir() {
 
   return favoriler || [];
 }
+
+export async function dahaSonraIzlenecekleriGetir() {
+  const supabase = await supabaseServer();
+
+  // Kullanıcıyı al
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+  if (!user) return [];
+
+  // Favorileri getir
+  const { data: dahaSonraIzlenecekler, error } = await supabase
+    .from("daha_sonra_izle")
+    .select("*")
+    .eq("kullanici_id", user.id);
+
+  if (error) {
+    console.error(error);
+    return [];
+  }
+
+  return dahaSonraIzlenecekler || [];
+}

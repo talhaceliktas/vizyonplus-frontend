@@ -1,4 +1,4 @@
-import Favoriler from "../../_components/profil/favoriler/Favoriler";
+import Favoriler from "../../_components/profil/Favoriler";
 import ProfilYanMenu from "../../_components/profil/ProfilYanMenu";
 
 const Page = () => {

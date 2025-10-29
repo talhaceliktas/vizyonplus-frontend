@@ -1,14 +1,17 @@
 import Image from "next/image";
-import { filmiGetir } from "../../../_lib/data-service-server";
-import { FilmTipi } from "../../../types";
-import FavorilereEkleButton from "../../ui/FavorilereEkleButton";
+import { filmiGetir } from "../../_lib/data-service-server";
+import { FilmTipi } from "../../types";
+import FavorilereEkleButton from "../ui/FavorilereEkleButton";
 import Link from "next/link";
+import DahaSonraIzleButton from "../ui/DahaSonraIzleButton";
 
-interface FavoriProps {
+const KayitliFilm = async ({
+  icerik_id,
+  kayitTuru,
+}: {
   icerik_id: number;
-}
-
-const Favori = async ({ icerik_id }: FavoriProps) => {
+  kayitTuru: string;
+}) => {
   const film: FilmTipi = await filmiGetir(icerik_id);
 
   const { id, isim, fotograf, tur, turler, aciklama } = film;
@@ -50,11 +53,15 @@ const Favori = async ({ icerik_id }: FavoriProps) => {
         <p className="mt-4 text-base">{aciklamaKesilmis}...</p>
 
         <div className="absolute right-4 bottom-4 flex gap-x-2">
-          <FavorilereEkleButton icerik_id={id} />
+          {kayitTuru === "favori" ? (
+            <FavorilereEkleButton icerik_id={id} />
+          ) : (
+            <DahaSonraIzleButton icerik_id={id} />
+          )}
         </div>
       </div>
     </Link>
   );
 };
 
-export default Favori;
+export default KayitliFilm;

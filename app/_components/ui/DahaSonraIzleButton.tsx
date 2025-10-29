@@ -22,7 +22,8 @@ const DahaSonraIzleButton = ({ icerik_id }) => {
     isaretliMiKontrol();
   }, [icerik_id]);
 
-  async function favoriyeEkleTiklandi() {
+  async function favoriyeEkleTiklandi(e) {
+    e.preventDefault();
     setIsLoading(true);
     await dahaSonraIzleEkle(icerik_id);
     setIsaretliMi(await dahaSonraIzleIsaretliMi(icerik_id));
@@ -32,7 +33,7 @@ const DahaSonraIzleButton = ({ icerik_id }) => {
   return (
     <button
       className={`text-[1.95rem] ${isLoading ? "cursor-not-allowed" : "cursor-pointer"}`}
-      onClick={favoriyeEkleTiklandi}
+      onClick={(e) => favoriyeEkleTiklandi(e)}
       disabled={isLoading}
     >
       {isLoading ? (
