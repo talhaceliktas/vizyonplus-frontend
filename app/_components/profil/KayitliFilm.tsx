@@ -35,6 +35,7 @@ const KayitliFilm = async ({
           src={fotograf}
           fill
           className="object-cover"
+          sizes="100%"
         />
       </div>
 

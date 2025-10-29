@@ -61,6 +61,7 @@ const TheatersSlider = ({ movies }: TheatersSliderProps) => {
                 alt={`${movie.title} filmi`}
                 fill
                 className="object-cover"
+                sizes="100%"
               />
             </div>
             <h3 className="mt-2 text-center text-sm sm:text-base md:text-lg">

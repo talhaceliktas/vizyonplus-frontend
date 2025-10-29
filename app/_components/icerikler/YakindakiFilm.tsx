@@ -12,6 +12,7 @@ const YakindakiFilm = ({ movie }: { movie: Movie }) => {
           fill
           className="object-contain opacity-85"
           loading="lazy"
+          sizes="100%"
         />
       </div>
 

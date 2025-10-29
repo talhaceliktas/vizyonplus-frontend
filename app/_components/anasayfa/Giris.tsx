@@ -9,12 +9,13 @@ import marvelLogo from "../../../public/marvelLogo.png";
 const Giris = () => {
   return (
     <div className="relative">
-      <div className="h-screen">
+      <div className="relative h-screen">
         <Image
           src={marvelBanner}
           fill
           alt="Marvel Banneri"
           className="object-cover opacity-60"
+          sizes="100vw"
         />
         <div className="bg-primary-800/5 absolute top-1/2 ml-5 -translate-y-1/2 rounded-2xl shadow-[0_10px_30px_-10px_rgba(0,0,0,0.4)] md:ml-40">
           <div className="relative h-[7rem] w-[14rem] md:h-[15rem] md:w-[30rem]">
@@ -23,6 +24,7 @@ const Giris = () => {
               fill
               alt="Marvel Logosu"
               className="object-contain"
+              sizes="(max-width: 768px) 14rem, 30rem"
             />
           </div>
           <div className="flex flex-col items-center gap-x-5 gap-y-2 text-sm md:flex-row md:gap-y-0 md:text-base">

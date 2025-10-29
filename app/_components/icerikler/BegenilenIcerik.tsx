@@ -13,6 +13,7 @@ const BegenilenIcerik = ({ movie }: { movie: Movie }) => {
           fill
           className="object-contain opacity-85"
           loading="lazy"
+          sizes="100%"
         />
         <div
           className={`bg-primary-900 absolute top-0 right-0 rounded-bl-2xl p-3 text-center text-xl ${playwrite.className}`}

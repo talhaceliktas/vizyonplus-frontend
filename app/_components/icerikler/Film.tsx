@@ -15,6 +15,7 @@ const Film = ({ film }: { film: FilmDetay }) => {
           fill
           className="object-contain opacity-85"
           loading="lazy"
+          sizes="100%"
         />
       </div>
       <h2 className="text-center text-xl font-semibold">{film.isim}</h2>
