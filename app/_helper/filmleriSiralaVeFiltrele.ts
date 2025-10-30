@@ -1,6 +1,12 @@
 import { FilmDetay } from "../types";
 
-export default function filmleriSiralaVeFiltrele(filtreler, filmler, siralama) {
+export default function filmleriSiralaVeFiltrele(
+  filtreler: string[],
+  filmler: FilmDetay[],
+  siralama: string,
+) {
+  console.log(siralama);
+
   let ayarlanmisFilmler = [...filmler];
 
   if (filtreler && filtreler.length > 0) {

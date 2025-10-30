@@ -12,15 +12,17 @@ export async function turleriGetir() {
 
 export async function favoriIsaretliMi(gelenIceriklerId: string) {
   const {
-    data: {
-      user: { id },
-    },
+    data: { user },
   } = await supabaseClient.auth.getUser();
+
+  if (!user) {
+    throw new Error("Kullanıcı bulunamadı!");
+  }
 
   const { data: favoriFilm, error } = await supabaseClient
     .from("favoriler")
     .select("*")
-    .eq("kullanici_id", id)
+    .eq("kullanici_id", user.id)
     .eq("icerikler_id", gelenIceriklerId);
 
   if (error) {
@@ -28,7 +30,7 @@ export async function favoriIsaretliMi(gelenIceriklerId: string) {
     console.log(error);
   }
 
-  return Boolean(favoriFilm?.length || 0);
+  return Boolean(favoriFilm?.length);
 }
 
 export async function favorilereEkle(gelenIceriklerId: string) {
@@ -59,15 +61,17 @@ export async function favorilereEkle(gelenIceriklerId: string) {
 
 export async function dahaSonraIzleIsaretliMi(gelenIceriklerId: string) {
   const {
-    data: {
-      user: { id },
-    },
+    data: { user },
   } = await supabaseClient.auth.getUser();
+
+  if (!user) {
+    throw new Error("Kullanıcı bulunamadı!");
+  }
 
   const { data: favoriFilm, error } = await supabaseClient
     .from("daha_sonra_izle")
     .select("*")
-    .eq("kullanici_id", id)
+    .eq("kullanici_id", user.id)
     .eq("icerikler_id", gelenIceriklerId);
 
   if (error) {
@@ -75,7 +79,7 @@ export async function dahaSonraIzleIsaretliMi(gelenIceriklerId: string) {
     console.log(error);
   }
 
-  return Boolean(favoriFilm.length);
+  return Boolean(favoriFilm?.length);
 }
 
 export async function dahaSonraIzleEkle(gelenIceriklerId: string) {
