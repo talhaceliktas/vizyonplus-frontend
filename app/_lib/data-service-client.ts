@@ -3,7 +3,7 @@ import supabaseClient from "./supabase/client";
 export async function turleriGetir() {
   const { data: turler } = await supabaseClient.rpc("get_turler");
 
-  return turler.map((turSatiri) => {
+  return turler.map((turSatiri: { tur: string }) => {
     return turSatiri.tur;
   });
 }
@@ -28,7 +28,7 @@ export async function favoriIsaretliMi(gelenIceriklerId: string) {
     console.log(error);
   }
 
-  return Boolean(favoriFilm.length);
+  return Boolean(favoriFilm?.length || 0);
 }
 
 export async function favorilereEkle(gelenIceriklerId: string) {

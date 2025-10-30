@@ -12,7 +12,7 @@ import supabaseServerClient from "../../../_lib/supabase/server";
 import Link from "next/link";
 import { FaRegBookmark, FaRegHeart } from "react-icons/fa6";
 
-const Page = async ({ params }) => {
+const Page = async ({ params }: { params: { filmId: string } }) => {
   const { filmId } = await params;
 
   const film: FilmTipi = await filmiGetir(filmId);
