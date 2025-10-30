@@ -5,7 +5,7 @@ import { turleriGetir } from "../../_lib/data-service-client";
 import { useSearchParams, useRouter, usePathname } from "next/navigation";
 
 const IcerikTurFiltre = () => {
-  const [icerikTurleri, setIcerikTurleri] = useState(null);
+  const [icerikTurleri, setIcerikTurleri] = useState([]);
 
   const searchParams = useSearchParams();
   const router = useRouter();
@@ -61,7 +61,7 @@ const IcerikTurFiltre = () => {
         <table>
           <tbody>
             {icerikTurleri &&
-              icerikTurleri.map((tur) => (
+              icerikTurleri.map((tur: string) => (
                 <tr key={tur} className="flex gap-x-2">
                   <td className="flex items-center">
                     <input

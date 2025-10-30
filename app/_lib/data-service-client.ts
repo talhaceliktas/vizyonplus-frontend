@@ -59,7 +59,7 @@ export async function favorilereEkle(gelenIceriklerId: number) {
 
 // Daha sonra izleme islevleri
 
-export async function dahaSonraIzleIsaretliMi(gelenIceriklerId: string) {
+export async function dahaSonraIzleIsaretliMi(gelenIceriklerId: number) {
   const {
     data: { user },
   } = await supabaseClient.auth.getUser();
@@ -82,7 +82,7 @@ export async function dahaSonraIzleIsaretliMi(gelenIceriklerId: string) {
   return Boolean(favoriFilm?.length);
 }
 
-export async function dahaSonraIzleEkle(gelenIceriklerId: string) {
+export async function dahaSonraIzleEkle(gelenIceriklerId: number) {
   const isaretliMi = await dahaSonraIzleIsaretliMi(gelenIceriklerId);
   let error = null;
 

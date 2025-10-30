@@ -8,7 +8,7 @@ import {
 import { useEffect, useState } from "react";
 import MiniYukleniyor from "./MiniYukleniyor";
 
-const DahaSonraIzleButton = ({ icerik_id }: { icerik_id: string }) => {
+const DahaSonraIzleButton = ({ icerik_id }: { icerik_id: number }) => {
   const [isaretliMi, setIsaretliMi] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 

@@ -3,7 +3,12 @@ import supabaseServerClient from "../../_lib/supabase/server";
 const Ayarlar = async () => {
   const supabase = await supabaseServerClient();
 
-  const user = await (await supabase.auth.getUser()).data.user;
+  const { data } = await supabase.auth.getUser();
+  const user = data.user;
+
+  if (!user) {
+    throw new Error("User not found");
+  }
 
   const {
     user_metadata: { display_name },

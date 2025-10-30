@@ -22,7 +22,7 @@ export async function filmleriGetir() {
   return filmler as FilmDetay[];
 }
 
-export async function filmiGetir(filmId: string) {
+export async function filmiGetir(filmId: number) {
   const supabase = await supabaseServer();
 
   const { data: filmler, error } = await supabase

@@ -14,10 +14,10 @@ const KategoriSiralama = () => {
     const params = new URLSearchParams(searchParams);
     params.set("siralama", siralama);
     router.push(`${pathname}?${params.toString()}`);
-    setSiralama(params.get("siralama"));
+    setSiralama(params.get("siralama") || "alfabetikAZ");
   };
 
-  const Secenek = ({ value, label }) => {
+  const Secenek = ({ value, label }: { value: string; label: string }) => {
     return (
       <option value={value} className="text-primary-800">
         {label}
