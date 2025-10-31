@@ -4,6 +4,7 @@ import { profilFotografiniGetir } from "../../_lib/data-service-server";
 import ProfilAyarlari from "./ProfilAyarlari";
 import { FaRegAddressCard } from "react-icons/fa";
 import SifreDegistir from "./SifreDegistir";
+import { IoMdUnlock } from "react-icons/io";
 
 const Ayarlar = async () => {
   const supabase = await supabaseServerClient();
@@ -22,7 +23,7 @@ const Ayarlar = async () => {
   const kullaniciFotografi = await profilFotografiniGetir(user.id);
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col gap-y-20">
       <div className="border-primary-700 relative flex flex-col items-center justify-center gap-y-8 border-2 px-2 py-8 md:flex-row md:items-start md:gap-x-16">
         <div className="border-primary-600 relative h-52 w-52 shrink-0 overflow-hidden rounded-full border-4">
           <Image
@@ -38,7 +39,13 @@ const Ayarlar = async () => {
         </h2>
         <ProfilAyarlari user={user} />
       </div>
-      <SifreDegistir user={user} />
+      <div className="border-primary-700 relative flex justify-center border-2">
+        <SifreDegistir user={user} />
+        <h2 className="absolute top-0 left-10 flex -translate-y-1/2 items-center gap-x-4 bg-[#191919] px-4">
+          <IoMdUnlock className="text-4xl" />
+          <p className="text-xl">Şifre Değiştir</p>
+        </h2>
+      </div>
     </div>
   );
 };
