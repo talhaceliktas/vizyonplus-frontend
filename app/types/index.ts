@@ -48,4 +48,5 @@ export type YorumTipi = {
   yorum: string;
   spoiler_mi: boolean;
   olusturulma_zamani: string;
+  profiller: { profil_fotografi: string | null; isim: string };
 };

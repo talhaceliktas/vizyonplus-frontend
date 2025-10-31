@@ -7,6 +7,8 @@ import Yorum from "./Yorum";
 const Yorumlar = async ({ icerikId }: { icerikId: number }) => {
   const yorumlar = await icerikYorumlariniGetir(icerikId);
 
+  console.log(yorumlar);
+
   return (
     <div className="border-primary-600 relative w-full rounded-2xl border-2 p-4 pt-8">
       <div className="absolute top-0 left-5 flex -translate-y-1/2 items-center gap-x-4 bg-[#151515] px-4 text-2xl">
@@ -16,7 +18,7 @@ const Yorumlar = async ({ icerikId }: { icerikId: number }) => {
         <h2>Yorumlar</h2>
       </div>
       <YorumYap icerikId={icerikId} />
-      <div className="divide-primary-600/30 flex flex-col divide-y-2">
+      <div className="divide-primary-600/30 my-4 flex flex-col gap-y-4 divide-y-2">
         {yorumlar.map((yorum: YorumTipi) => (
           <Yorum key={yorum.id} yorum={yorum} />
         ))}

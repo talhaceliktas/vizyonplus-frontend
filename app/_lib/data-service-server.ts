@@ -91,7 +91,12 @@ export async function icerikYorumlariniGetir(icerikId: number) {
 
   const { data: yorumlar, error } = await supabase
     .from("yorumlar")
-    .select("*")
+    .select(
+      `
+      *,
+      profiller(profil_fotografi, isim)
+    `,
+    )
     .eq("icerik_id", icerikId);
 
   if (error) {
