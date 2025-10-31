@@ -9,6 +9,7 @@ import { FaUserCircle } from "react-icons/fa";
 import supabaseBrowserClient from "../_lib/supabase/client";
 import { User } from "@supabase/supabase-js";
 import useDisariTiklamaAlgila from "../hooks/useDisariTiklamaAlgila";
+import supabase from "../_lib/supabase/client";
 
 const Navbar = () => {
   const [user, setUser] = useState<User | null>(null);
@@ -27,6 +28,54 @@ const Navbar = () => {
       authListener.subscription.unsubscribe();
     };
   }, []);
+
+  const [profilFoto, setProfilFoto] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (!user) return;
+
+    const fetchProfilePhoto = async () => {
+      const { data, error } = await supabase
+        .from("profiller")
+        .select("profil_fotografi")
+        .eq("id", user.id)
+        .single();
+
+      if (error) {
+        console.error("Profil fotoğrafı alınamadı:", error.message);
+        return;
+      }
+
+      if (data?.profil_fotografi) {
+        // Cache kırmak için zaman etiketi ekle
+        setProfilFoto(`${data.profil_fotografi}?t=${Date.now()}`);
+      }
+    };
+
+    fetchProfilePhoto();
+
+    // Realtime güncelleme dinleyicisi (isteğe bağlı)
+    const channel = supabase
+      .channel("profiller-changes")
+      .on(
+        "postgres_changes",
+        {
+          event: "UPDATE",
+          schema: "public",
+          table: "profiller",
+          filter: `id=eq.${user.id}`,
+        },
+        (payload) => {
+          const newFoto = payload.new.profil_fotografi;
+          setProfilFoto(`${newFoto}?t=${Date.now()}`);
+        },
+      )
+      .subscribe();
+
+    return () => {
+      supabase.removeChannel(channel);
+    };
+  }, [user]);
 
   const [isTop, setIsTop] = useState(true);
   // 1. Dropdown menünün durumunu tutmak için state
@@ -101,10 +150,11 @@ const Navbar = () => {
                 {user?.user_metadata?.display_name ? (
                   <>
                     <Image
-                      src="https://avatar.iran.liara.run/public"
+                      src={profilFoto || "/default-user.jpg"}
                       alt=""
                       width={40}
                       height={40}
+                      className="rounded-full"
                     />
                     <p>{user?.user_metadata?.display_name}</p>
                   </>
@@ -115,7 +165,9 @@ const Navbar = () => {
             </button>
 
             {/* State true ise menüyü göster */}
-            {isDropdownOpen && <AsagiAcilirMenu user={user} />}
+            {isDropdownOpen && (
+              <AsagiAcilirMenu user={user} profilFoto={profilFoto} />
+            )}
           </div>
         </div>
       </div>

@@ -1,5 +1,7 @@
-import React, { ReactNode } from "react";
+"use client";
+
 import Link from "next/link";
+import Image from "next/image";
 import { ImExit } from "react-icons/im";
 import { FaUser } from "react-icons/fa6";
 import { MdPayments } from "react-icons/md";
@@ -7,15 +9,21 @@ import { VscSignIn } from "react-icons/vsc";
 import CikisYapButton from "./ui/CikisYapButton";
 import { User } from "@supabase/supabase-js";
 
-const AsagiAcilirMenu = ({ user }: { user: User | null }) => {
+const AsagiAcilirMenu = ({
+  user,
+  profilFoto,
+}: {
+  user: User | null;
+  profilFoto: string | null;
+}) => {
   const MenuLink = ({
     href,
     children,
     icon,
   }: {
     href: string;
-    children: ReactNode;
-    icon: ReactNode;
+    children: React.ReactNode;
+    icon: React.ReactNode;
   }) => (
     <Link
       href={href}
@@ -27,16 +35,36 @@ const AsagiAcilirMenu = ({ user }: { user: User | null }) => {
   );
 
   return (
-    <div className="bg-primary-900/50 ring-opacity-5 absolute right-0 z-20 mt-2 w-48 origin-top-right translate-y-1/3 rounded-md py-1 shadow-lg ring-1 ring-black backdrop-blur-xl focus:outline-none">
+    <div className="bg-primary-900/50 ring-opacity-5 absolute right-0 z-20 mt-2 w-56 origin-top-right translate-y-1/3 rounded-md py-2 shadow-lg ring-1 ring-black backdrop-blur-xl focus:outline-none">
       {user ? (
         <>
+          {/* 🔹 Üstte küçük avatar */}
+          <div className="flex items-center gap-3 px-4 py-2">
+            <div className="relative h-10 w-10 overflow-hidden rounded-full">
+              <Image
+                src={profilFoto || "/default-user.jpg"}
+                alt="Profil fotoğrafı"
+                fill
+                className="object-cover"
+                sizes="40px"
+              />
+            </div>
+            <span className="text-primary-50 truncate font-medium">
+              {user.email}
+            </span>
+          </div>
+
+          <div className="bg-primary-700 my-1 h-px" />
+
           <MenuLink href="/profil" icon={<FaUser />}>
             <b>Profilim</b>
           </MenuLink>
           <MenuLink href="/abonelikler" icon={<MdPayments />}>
             Abonelikler
           </MenuLink>
-          <div className="bg-primary-700 my-1 h-px" /> {/* Ayıraç */}
+
+          <div className="bg-primary-700 my-1 h-px" />
+
           <CikisYapButton
             icon={<ImExit />}
             className="text-primary-100 hover:bg-primary-700 flex w-full items-center justify-between px-4 py-2 text-base"
