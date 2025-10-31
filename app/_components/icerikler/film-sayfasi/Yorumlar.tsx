@@ -1,8 +1,12 @@
 import { BiCommentDetail } from "react-icons/bi";
 import YorumYap from "./YorumYap";
+import { icerikYorumlariniGetir } from "../../../_lib/data-service-server";
+import type { YorumTipi } from "../../../types";
 import Yorum from "./Yorum";
 
-const Yorumlar = () => {
+const Yorumlar = async ({ icerikId }: { icerikId: number }) => {
+  const yorumlar = await icerikYorumlariniGetir(icerikId);
+
   return (
     <div className="border-primary-600 relative w-full rounded-2xl border-2 p-4 pt-8">
       <div className="absolute top-0 left-5 flex -translate-y-1/2 items-center gap-x-4 bg-[#151515] px-4 text-2xl">
@@ -11,12 +15,11 @@ const Yorumlar = () => {
         </p>
         <h2>Yorumlar</h2>
       </div>
-      <YorumYap />
+      <YorumYap icerikId={icerikId} />
       <div className="divide-primary-600/30 flex flex-col divide-y-2">
-        <Yorum />
-        <Yorum />
-        <Yorum />
-        <Yorum />
+        {yorumlar.map((yorum: YorumTipi) => (
+          <Yorum key={yorum.id} yorum={yorum} />
+        ))}
       </div>
     </div>
   );

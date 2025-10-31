@@ -105,3 +105,17 @@ export async function dahaSonraIzleEkle(gelenIceriklerId: number) {
     console.log("Daha Sonra İzle başarılı!");
   }
 }
+
+export async function yorumYap(
+  icerikId: number,
+  yorum: string,
+  spoilerVar: boolean,
+) {
+  const { error } = await supabaseClient
+    .from("yorumlar")
+    .insert([{ icerik_id: icerikId, yorum, spoiler_mi: spoilerVar }]);
+
+  if (error) {
+    console.error("Daha Sonra İzle işlemi hatası:", error.message || error);
+  }
+}

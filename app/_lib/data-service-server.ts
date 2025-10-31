@@ -85,3 +85,19 @@ export async function dahaSonraIzlenecekleriGetir() {
 
   return dahaSonraIzlenecekler || [];
 }
+
+export async function icerikYorumlariniGetir(icerikId: number) {
+  const supabase = await supabaseServer();
+
+  const { data: yorumlar, error } = await supabase
+    .from("yorumlar")
+    .select("*")
+    .eq("icerik_id", icerikId);
+
+  if (error) {
+    console.error(error);
+    return [];
+  }
+
+  return yorumlar || [];
+}

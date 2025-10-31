@@ -35,3 +35,11 @@ export interface FilmUcretleri {
 export type FilmDetay = FilmTipi & {
   film_ucretleri: FilmUcretleri[];
 };
+
+export type YorumTipi = {
+  id: number;
+  icerik_id: number;
+  yorum: string;
+  spoiler_mi: boolean;
+  olusturulma_zamani: string;
+};

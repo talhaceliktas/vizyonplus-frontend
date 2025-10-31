@@ -39,7 +39,7 @@ const Page = async ({ params }: { params: { filmId: number } }) => {
               <FilmButonlari id={id} user={user} />
             </div>
           </div>
-          <Yorumlar />
+          <Yorumlar icerikId={id} />
         </div>
       </div>
       <Footer />
