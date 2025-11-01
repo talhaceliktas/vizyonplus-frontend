@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState, useRef } from "react";
-import biletcimLogo from "../../public/logo.png";
+import vizyonPLusLogo from "../../public/logo.png";
 import Image from "next/image";
 import AsagiAcilirMenu from "./AsagiAcilirMenu";
 import { FaUserCircle } from "react-icons/fa";
@@ -108,9 +108,9 @@ const Navbar = () => {
       >
         <Link href="/">
           <Image
-            alt="Biletcim Logosu"
-            src={biletcimLogo}
-            className="w-32 sm:w-44"
+            alt="Vizyon Plus Logosu"
+            src={vizyonPLusLogo}
+            className="w-32 sm:w-38"
           />
         </Link>
         <div className="hidden items-center gap-x-5 font-semibold md:flex">

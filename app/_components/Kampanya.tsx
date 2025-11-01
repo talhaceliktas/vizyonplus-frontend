@@ -22,7 +22,7 @@ const Kampanya = ({
           <p
             className={`p-4 text-center text-xl md:text-2xl ${macondo.className}`}
           >
-            BILETCIM
+            Vizyon+
           </p>
           <p className="p-2 text-sm md:text-base">
             Pazartesi ve Çarşamba günleri sinemaseverleri ödüllendiriyoruz! Tüm

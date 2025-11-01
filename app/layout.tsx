@@ -6,7 +6,7 @@ import Navbar from "./_components/Navbar";
 import { Toaster } from "react-hot-toast";
 
 export const metadata: Metadata = {
-  title: "Biletcim",
+  title: "Vizyon+",
   description: "Sinema rezervasyon sistemi",
 };
 

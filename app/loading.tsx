@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { SyncLoader } from "react-spinners";
-import biletcimLogo from "../public/logo.png";
+import vizyonPlusLogo from "../public/logo.png";
 
 const Loading = () => {
   return (
@@ -8,8 +8,8 @@ const Loading = () => {
       <div className="flex w-32 flex-col items-center gap-y-6">
         <div className="relative aspect-[4/1] w-40 md:w-60">
           <Image
-            src={biletcimLogo}
-            alt="Biletcim Logosu"
+            src={vizyonPlusLogo}
+            alt="Vizyon PlusLogo"
             fill
             sizes="10rem, 15rem"
           />
