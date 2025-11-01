@@ -6,7 +6,6 @@ import { DiziDetay } from "../../types";
 const DiziIcerigi = ({ dizi }: { dizi: DiziDetay }) => {
   const { isim, yonetmen, yayinlanma_tarihi, turler, sure, aciklama } = dizi;
 
-  console.log(dizi);
   return (
     <>
       <div className="flex items-center justify-between">

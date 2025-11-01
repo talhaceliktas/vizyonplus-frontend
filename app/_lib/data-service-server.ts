@@ -46,9 +46,9 @@ export async function filmiGetir(filmId: number) {
 export async function diziyiGetir(diziId: number) {
   const supabase = await supabaseServer();
 
-  const { data: filmler, error } = await supabase
+  const { data: dizi, error } = await supabase
     .from("icerikler")
-    .select("*, dizi(sezon_numarasi)")
+    .select("*, dizi(sezon_numarasi, bolumler(*))")
     .eq("id", diziId)
     .single();
 
@@ -58,7 +58,7 @@ export async function diziyiGetir(diziId: number) {
     return {};
   }
 
-  return filmler;
+  return dizi;
 }
 
 export async function favorileriGetir() {

@@ -1,4 +1,4 @@
-import type { Movie } from "../../types";
+import type { Movie } from "../../../types";
 import YakindakiFilm from "./YakindakiFilm";
 
 const YakindakiFilmler = async () => {
