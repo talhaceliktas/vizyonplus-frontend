@@ -12,7 +12,6 @@ export async function generateStaticParams() {
     { katalog: "diziler" },
     { katalog: "filmler" },
     { katalog: "yakindakiler" },
-    { katalog: "begenilenler" },
   ];
 }
 

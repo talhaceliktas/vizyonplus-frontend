@@ -4,7 +4,7 @@ const TheatersBox = async () => {
   const res = await fetch("https://imdb-top-100-movies.p.rapidapi.com/", {
     method: "GET",
     headers: {
-      "x-rapidapi-key": "0a3d8d758emsh2929570012ed1b0p1fe646jsnd500c5e22a12",
+      "x-rapidapi-key": "8976dc4d62mshe29eba7db628c39p157319jsnb4f4acbe2784",
       "x-rapidapi-host": "imdb-top-100-movies.p.rapidapi.com",
     },
     next: { revalidate: 86400 },
