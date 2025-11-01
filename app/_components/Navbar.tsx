@@ -163,7 +163,11 @@ const Navbar = () => {
 
             {/* State true ise menüyü göster */}
             {isDropdownOpen && (
-              <AsagiAcilirMenu user={user} profilFoto={profilFoto} />
+              <AsagiAcilirMenu
+                user={user}
+                profilFoto={profilFoto}
+                setIsDropdownOpen={setIsDropdownOpen}
+              />
             )}
           </div>
         </div>

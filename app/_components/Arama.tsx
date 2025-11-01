@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { aramaYap } from "../_lib/data-service-client";
 import Image from "next/image";
 import useDisariTiklamaAlgila from "../hooks/useDisariTiklamaAlgila";
+import Link from "next/link";
 
 interface VeriTipi {
   id: string | number;
@@ -55,9 +56,18 @@ const Arama = () => {
           ref={aramaRef}
         >
           {veriler.map((veri) => (
-            <div
-              className="bg-primary-800 grid grid-cols-[auto_1fr] gap-x-4 gap-y-2 rounded-xl p-2"
+            <Link
+              className="bg-primary-800 hover:bg-primary-700 grid grid-cols-[auto_1fr] gap-x-4 gap-y-2 rounded-xl p-2 duration-300"
               key={veri.id}
+              onClick={() => {
+                setIsOpen(false);
+                setArama("");
+              }}
+              href={
+                veri.tur === "film"
+                  ? `/icerikler/filmler/${veri.id}`
+                  : `/icerikler/diziler/${veri.id}`
+              }
             >
               {veri.fotograf && (
                 <div className="relative h-28 w-16">
@@ -99,7 +109,7 @@ const Arama = () => {
                   {veri.tur === "film" ? "Film" : "Dizi"}
                 </p>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       )}

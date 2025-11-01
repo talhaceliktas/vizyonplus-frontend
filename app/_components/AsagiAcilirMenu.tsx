@@ -12,9 +12,11 @@ import { User } from "@supabase/supabase-js";
 const AsagiAcilirMenu = ({
   user,
   profilFoto,
+  setIsDropdownOpen,
 }: {
   user: User | null;
   profilFoto: string | null;
+  setIsDropdownOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
   const MenuLink = ({
     href,
@@ -28,6 +30,7 @@ const AsagiAcilirMenu = ({
     <Link
       href={href}
       className="text-primary-100 hover:bg-primary-700 flex w-full items-center justify-between px-4 py-2 text-left text-base"
+      onClick={() => setIsDropdownOpen(false)}
     >
       {children}
       <span className="text-xl">{icon}</span>
@@ -81,6 +84,7 @@ const AsagiAcilirMenu = ({
           <Link
             className="text-primary-100 hover:bg-primary-700 flex w-full items-center justify-between px-4 py-2 text-base"
             href="/kayitol"
+            onClick={() => setIsDropdownOpen(false)}
           >
             <span>Kayıt Ol</span>
             <svg
