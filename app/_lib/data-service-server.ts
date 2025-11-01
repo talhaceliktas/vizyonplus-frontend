@@ -43,6 +43,24 @@ export async function filmiGetir(filmId: number) {
   return filmler;
 }
 
+export async function diziyiGetir(diziId: number) {
+  const supabase = await supabaseServer();
+
+  const { data: filmler, error } = await supabase
+    .from("icerikler")
+    .select("*, dizi(sezon_numarasi)")
+    .eq("id", diziId)
+    .single();
+
+  if (error) {
+    // not-found sayfasi eklenecek
+    console.log(error);
+    return {};
+  }
+
+  return filmler;
+}
+
 export async function favorileriGetir() {
   const supabase = await supabaseServer();
 

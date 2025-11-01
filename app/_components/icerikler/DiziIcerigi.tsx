@@ -1,10 +1,12 @@
 import React from "react";
 import { LuTimer } from "react-icons/lu";
 import { MdDateRange } from "react-icons/md";
-import { DiziDetay } from "../../../types";
+import { DiziDetay } from "../../types";
 
 const DiziIcerigi = ({ dizi }: { dizi: DiziDetay }) => {
   const { isim, yonetmen, yayinlanma_tarihi, turler, sure, aciklama } = dizi;
+
+  console.log(dizi);
   return (
     <>
       <div className="flex items-center justify-between">

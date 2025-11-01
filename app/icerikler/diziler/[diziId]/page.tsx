@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import { filmiGetir } from "../../../_lib/data-service-server";
+import { diziyiGetir } from "../../../_lib/data-service-server";
 import { DiziDetay } from "../../../types";
 import Loading from "../../../loading";
 import Image from "next/image";
@@ -12,7 +12,7 @@ import DiziIcerigi from "../../../_components/icerikler/DiziIcerigi";
 const Page = async ({ params }: { params: { diziId: number } }) => {
   const { diziId } = await params;
 
-  const dizi: DiziDetay = await filmiGetir(diziId);
+  const dizi: DiziDetay = await diziyiGetir(diziId);
 
   const supabase = await supabaseServerClient();
 

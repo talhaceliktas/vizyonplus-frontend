@@ -3,7 +3,7 @@
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useState } from "react";
 
-const KategoriSiralama = () => {
+const KategoriSiralama = ({ katalog }: { katalog: string }) => {
   const [siralama, setSiralama] = useState("alfabetikAZ");
 
   const router = useRouter();
@@ -34,8 +34,12 @@ const KategoriSiralama = () => {
     >
       <Secenek value="alfabetikAZ" label="Alfabetik (A - Z)" />
       <Secenek value="alfabetikZA" label="Alfabetik (Z - A)" />
-      <Secenek value="fiyataGoreArtan" label="Fiyata Göre (Artan)" />
-      <Secenek value="fiyataGoreAzalan" label="Fiyata Göre (Azalan)" />
+      {katalog === "filmler" && (
+        <>
+          <Secenek value="fiyataGoreArtan" label="Fiyata Göre (Artan)" />
+          <Secenek value="fiyataGoreAzalan" label="Fiyata Göre (Azalan)" />
+        </>
+      )}
       <Secenek value="puanArtan" label="Puana Gore (Artan)" />
       <Secenek value="puanAzalan" label="Puana Gore (Azalan)" />
     </select>
