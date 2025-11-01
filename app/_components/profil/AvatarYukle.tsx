@@ -1,14 +1,29 @@
 "use client";
-import { useState } from "react";
+import React, { useState } from "react";
 import supabase from "../../_lib/supabase/client";
 import { User } from "@supabase/supabase-js";
 import toast from "react-hot-toast";
 
-export default function AvatarYukle({ user }: { user: User }) {
+import NextImage from "next/image";
+import { FaPencilAlt } from "react-icons/fa";
+
+interface AvatarYukleProps {
+  user: User;
+  displayName: string | null;
+  src: string | null;
+}
+
+export default function AvatarYukle({
+  user,
+  displayName,
+  src,
+}: AvatarYukleProps) {
   const [uploading, setUploading] = useState(false);
 
   async function resizeAndCropImage(file: File, size = 512): Promise<Blob> {
     return new Promise((resolve, reject) => {
+      // DEĞİŞİKLİK 2: Artık 'new Image()' tarayıcının doğru fonksiyonunu
+      // güvenle çağırabilir, çünkü isim çakışması çözüldü.
       const img = new Image();
       const reader = new FileReader();
 
@@ -50,13 +65,11 @@ export default function AvatarYukle({ user }: { user: User }) {
       const file = event.target.files?.[0];
       if (!file) return;
 
-      // 🔸 Boyut kontrolü (2 MB sınırı)
       if (file.size > 2 * 1024 * 1024) {
         toast.error("Dosya 2 MB’tan büyük olamaz!");
         return;
       }
 
-      // 🔸 Geçerli format kontrolü
       const allowedTypes = ["image/jpeg", "image/png", "image/webp"];
       if (!allowedTypes.includes(file.type)) {
         toast.error(
@@ -65,16 +78,12 @@ export default function AvatarYukle({ user }: { user: User }) {
         return;
       }
 
-      // 🔸 Görseli yeniden boyutlandır ve kırp
       const processedImage = await resizeAndCropImage(file, 512);
-
       const filePath = `${user.id}/avatar.jpg`;
       const bucket = supabase.storage.from("profil_fotograflari");
 
-      // 🔸 Eski dosyayı sil (isteğe bağlı)
       await bucket.remove([filePath]);
 
-      // 🔸 Yeni dosyayı yükle
       const { error: uploadError } = await bucket.upload(
         filePath,
         processedImage,
@@ -86,11 +95,9 @@ export default function AvatarYukle({ user }: { user: User }) {
 
       if (uploadError) throw uploadError;
 
-      // 🔸 Public URL al ve cache kır
       const { data } = bucket.getPublicUrl(filePath);
       const publicUrl = `${data.publicUrl}?t=${Date.now()}`;
 
-      // 🔸 Profili güncelle
       const { error: updateError } = await supabase
         .from("profiller")
         .update({ profil_fotografi: publicUrl })
@@ -105,15 +112,34 @@ export default function AvatarYukle({ user }: { user: User }) {
       setUploading(false);
     }
   }
-
   return (
-    <div className="flex flex-col gap-2">
-      <input
-        type="file"
-        accept="image/*"
-        onChange={uploadAvatar}
-        disabled={uploading}
-      />
+    <div className="flex flex-col items-center gap-2">
+      <div className="border-primary-600 group relative h-52 w-52 shrink-0 overflow-hidden rounded-full border-4">
+        <NextImage
+          alt={`${displayName || "Kullanıcı"} fotoğrafı`}
+          src={src || "/default-user.jpg"}
+          fill
+          className="object-cover"
+        />
+
+        <label
+          htmlFor="avatar-upload"
+          className="absolute inset-0 z-10 flex cursor-pointer flex-col items-center justify-center gap-2 bg-black/60 text-white opacity-0 transition-opacity group-hover:opacity-100"
+        >
+          <FaPencilAlt className="text-3xl" />
+          <span className="text-sm font-medium">Avatarı Değiştir</span>
+        </label>
+
+        <input
+          id="avatar-upload"
+          type="file"
+          accept="image/*"
+          onChange={uploadAvatar}
+          disabled={uploading}
+          className="hidden"
+        />
+      </div>
+
       {uploading && <p className="text-sm text-gray-500">Yükleniyor...</p>}
     </div>
   );
