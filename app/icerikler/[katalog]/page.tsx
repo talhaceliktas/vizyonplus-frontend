@@ -3,7 +3,7 @@ import KategoriSecim from "../../_components/icerikler/KategoriSecim";
 import KategoriSiralama from "../../_components/icerikler/KategoriSiralama";
 import KategoriIcerik from "../../_components/icerikler/KategoriIcerik";
 import Loading from "../../loading";
-import Yukleniyor from "../../_components/icerikler/Yukleniyor";
+import Yukleniyor from "../../_components/ui/Yukleniyor";
 import Footer from "../../_components/Footer";
 import IcerikTurFiltre from "../../_components/icerikler/IcerikTurFiltre";
 

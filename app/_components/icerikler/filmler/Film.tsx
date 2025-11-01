@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { FilmDetay } from "../../types";
+import { FilmDetay } from "../../../types";
 import Link from "next/link";
 
 const Film = ({ film }: { film: FilmDetay }) => {

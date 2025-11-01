@@ -1,7 +1,7 @@
 import { Suspense } from "react";
 import Favoriler from "../../_components/profil/Favoriler";
 import ProfilYanMenu from "../../_components/profil/ProfilYanMenu";
-import Yukleniyor from "../../_components/icerikler/Yukleniyor";
+import Yukleniyor from "../../_components/ui/Yukleniyor";
 
 const Page = () => {
   return (

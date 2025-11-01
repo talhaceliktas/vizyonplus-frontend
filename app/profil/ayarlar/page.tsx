@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 import ProfilYanMenu from "../../_components/profil/ProfilYanMenu";
-import Yukleniyor from "../../_components/icerikler/Yukleniyor";
+import Yukleniyor from "../../_components/ui/Yukleniyor";
 import Ayarlar from "../../_components/profil/Ayarlar";
 
 const Page = () => {

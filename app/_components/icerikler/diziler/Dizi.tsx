@@ -1,6 +1,6 @@
 import Image from "next/image";
-import { Movie } from "../../types";
-import { randomDatePrevious30Days } from "../../_helper/rastgeleTarih";
+import { Movie } from "../../../types";
+import { randomDatePrevious30Days } from "../../../_helper/rastgeleTarih";
 
 const Dizi = ({ movie }: { movie: Movie }) => {
   return (

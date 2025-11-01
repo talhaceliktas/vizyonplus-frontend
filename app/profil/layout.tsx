@@ -1,5 +1,5 @@
 import { ReactNode, Suspense } from "react";
-import Yukleniyor from "../_components/icerikler/Yukleniyor";
+import Yukleniyor from "../_components/ui/Yukleniyor";
 
 const Layout = ({ children }: { children: ReactNode }) => {
   return (

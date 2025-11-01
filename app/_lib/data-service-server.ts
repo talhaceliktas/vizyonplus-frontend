@@ -1,17 +1,19 @@
 "use server";
 
-import { FilmDetay } from "../types";
 import supabaseServer from "./supabase/server";
 
-export async function filmleriGetir() {
+export async function icerikleriGetir(tur: string) {
   const supabase = await supabaseServer();
 
-  const { data: filmler, error } = await supabase
+  const selectQuery =
+    tur === "film"
+      ? "isim, fotograf, turler, id, film_ucretleri(satin_alma_ucreti, indirim_orani, ogrenci_indirim_orani)"
+      : "isim, fotograf, turler, id";
+
+  const { data: icerikler, error } = await supabase
     .from("icerikler")
-    .select(
-      "isim, fotograf, turler, id, film_ucretleri(satin_alma_ucreti, indirim_orani, ogrenci_indirim_orani)",
-    )
-    .eq("tur", "film");
+    .select(selectQuery)
+    .eq("tur", tur);
 
   if (error) {
     // not-found sayfasi eklenecek
@@ -19,7 +21,8 @@ export async function filmleriGetir() {
     return [];
   }
 
-  return filmler as FilmDetay[];
+  return icerikler;
+  // as FilmDetay[];
 }
 
 export async function filmiGetir(filmId: number) {

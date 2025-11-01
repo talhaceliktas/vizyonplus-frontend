@@ -1,7 +1,7 @@
-import BegenilenIcerikler from "./BegenilenIcerikler";
-import Diziler from "./Diziler";
-import Filmler from "./Filmler";
-import YakindakiFilmler from "./YakindakiFilmler";
+import BegenilenIcerikler from "./begenilenler/BegenilenIcerikler";
+import Diziler from "./diziler/Diziler";
+import Filmler from "./filmler/Filmler";
+import YakindakiFilmler from "./yakindakiler/YakindakiFilmler";
 
 const KategoriIcerik = ({ katalog }: { katalog: string }) => {
   return (

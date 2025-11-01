@@ -1,10 +1,10 @@
 "use client";
 
 import { useSearchParams } from "next/navigation";
-import { FilmDetay } from "../../types";
+import { FilmDetay } from "../../../types";
 import Film from "./Film";
 import { useEffect, useState } from "react";
-import filmleriSiralaVeFiltrele from "../../_helper/filmleriSiralaVeFiltrele";
+import filmleriSiralaVeFiltrele from "../../../_helper/filmleriSiralaVeFiltrele";
 
 const FilmKonteynir = ({ filmler }: { filmler: FilmDetay[] }) => {
   const [filtreler, setFiltreler] = useState<string[]>([]);
