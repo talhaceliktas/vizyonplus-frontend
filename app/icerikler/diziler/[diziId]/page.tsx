@@ -8,8 +8,6 @@ import supabaseServerClient from "../../../_lib/supabase/server";
 import IcerikButonlari from "../../../_components/icerikler/dizi-film/IcerikButonlari";
 import Yorumlar from "../../../_components/icerikler/dizi-film/Yorumlar";
 import DiziIcerigi from "../../../_components/icerikler/DiziIcerigi";
-import DiziSezonlari from "../../../_components/icerikler/DiziSezonlari";
-import DiziBolumleri from "../../../_components/icerikler/DiziBolumleri";
 import DiziSezonKonteynir from "../../../_components/icerikler/DiziSezonKonteynir";
 
 const Page = async ({ params }: { params: { diziId: number } }) => {
