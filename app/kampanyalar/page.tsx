@@ -6,13 +6,9 @@ import Footer from "../_components/Footer";
 const Page = () => {
   return (
     <Suspense fallback={<Loading />}>
-      <div className="mt-40 w-full">
+      <div className="mt-48 w-full">
         <div className="mx-auto w-full max-w-[1360px]">
-          <select name="" id="" className="ml-auto block">
-            <option value="">Test</option>
-            <option value="">Test</option>
-          </select>
-          <div className="bg-primary-800 rounded-xl">
+          <div className="rounded-xl">
             <div className="mt-10 grid grid-cols-1 gap-x-5 gap-y-14 p-4 lg:grid-cols-2">
               <Kampanya
                 kampanyaDetaylari={{ fotograf: "/kampanyalar/Kampanya1.jpeg" }}
