@@ -1,4 +1,3 @@
-import Image from "next/image";
 import supabaseServerClient from "../../_lib/supabase/server";
 import { profilFotografiniGetir } from "../../_lib/data-service-server";
 import ProfilAyarlari from "./ProfilAyarlari";
@@ -28,14 +27,12 @@ const Ayarlar = async () => {
       <div className="border-primary-700 relative flex flex-col items-center justify-center gap-y-8 border-2 px-2 py-8 md:flex-row md:items-start md:gap-x-16">
         <div>
           <div className="border-primary-600 relative h-52 w-52 shrink-0 overflow-hidden rounded-full border-4">
-            <Image
-              alt={`${display_name || "Kullanıcı"} fotoğrafı`}
-              src={kullaniciFotografi || "/default-user.jpg"}
-              fill
-              className="object-cover"
+            <AvatarYukle
+              user={user}
+              displayName={display_name}
+              src={kullaniciFotografi}
             />
           </div>
-          <AvatarYukle user={user} />
         </div>
         <h2 className="absolute top-0 left-10 flex -translate-y-1/2 items-center gap-x-4 bg-[#191919] px-4">
           <FaRegAddressCard className="text-4xl" />
