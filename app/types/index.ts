@@ -19,7 +19,7 @@ export interface Movie {
   year: number;
 }
 
-export interface FilmTipi {
+export interface IcerikTipi {
   aciklama: string;
   fotograf: string;
   id: number;
@@ -38,8 +38,12 @@ export interface FilmUcretleri {
   satin_alma_ucreti: number;
 }
 
-export type FilmDetay = FilmTipi & {
+export type FilmDetay = IcerikTipi & {
   film_ucretleri: FilmUcretleri[];
+};
+
+export type DiziDetay = IcerikTipi & {
+  dizi: { sezon_numarasi: string }[];
 };
 
 export type YorumTipi = {

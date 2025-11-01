@@ -1,7 +1,7 @@
 import React from "react";
 import { LuTimer } from "react-icons/lu";
 import { MdDateRange } from "react-icons/md";
-import { FilmDetay } from "../../../types";
+import { FilmDetay } from "../../types";
 
 const FilmIcerigi = ({ film }: { film: FilmDetay }) => {
   const { isim, yonetmen, yayinlanma_tarihi, turler, sure, aciklama } = film;

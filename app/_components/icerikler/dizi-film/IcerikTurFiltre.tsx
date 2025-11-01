@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { turleriGetir } from "../../_lib/data-service-client";
+import { turleriGetir } from "../../../_lib/data-service-client";
 import { useSearchParams, useRouter, usePathname } from "next/navigation";
 
 const IcerikTurFiltre = () => {

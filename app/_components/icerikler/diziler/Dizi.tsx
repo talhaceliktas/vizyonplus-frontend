@@ -1,39 +1,35 @@
 import Image from "next/image";
-import { Movie } from "../../../types";
-import { randomDatePrevious30Days } from "../../../_helper/rastgeleTarih";
+import { DiziDetay } from "../../../types";
+import Link from "next/link";
 
-const Dizi = ({ movie }: { movie: Movie }) => {
+const Dizi = ({ dizi }: { dizi: DiziDetay }) => {
   return (
-    <div className="flex flex-col gap-y-4 overflow-hidden rounded-lg">
+    <Link
+      className="flex flex-col gap-y-2 overflow-hidden rounded-lg grayscale-25 duration-300 hover:scale-110 hover:grayscale-0"
+      href={`/icerikler/diziler/${dizi.id}`}
+    >
       <div className="relative aspect-[619/919] w-full">
         <Image
-          src={movie.big_image}
-          alt={`${movie.title} Filmi`}
+          src={dizi.fotograf}
+          alt={`${dizi.isim} Filmi`}
           fill
           className="object-contain opacity-85"
           loading="lazy"
           sizes="100%"
         />
       </div>
-
-      <h2 className="text-center text-2xl font-semibold">{movie.title}</h2>
+      <h2 className="text-center text-xl font-semibold">{dizi.isim}</h2>
       <div className="text-primary-50 flex flex-col text-center">
         <p className="opacity-75">
-          {movie.genre.map((tur, index) => (
+          {dizi.turler.map((tur, index) => (
             <span key={tur}>
               {index !== 0 && "| "}
               {tur}{" "}
             </span>
           ))}
         </p>
-        <p className="gap-x-4 text-lg">
-          <span className="opacity-80">Vizyon Tarihi: </span>
-          <span className="font-bold opacity-90">
-            {randomDatePrevious30Days()}
-          </span>
-        </p>
       </div>
-    </div>
+    </Link>
   );
 };
 

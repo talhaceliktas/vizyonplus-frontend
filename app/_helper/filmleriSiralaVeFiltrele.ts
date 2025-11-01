@@ -2,13 +2,13 @@ import { FilmDetay } from "../types";
 
 export default function filmleriSiralaVeFiltrele(
   filtreler: string[],
-  filmler: FilmDetay[],
+  icerikler: FilmDetay[],
   siralama: string,
 ) {
-  let ayarlanmisFilmler = [...filmler];
+  let ayarlanmisFilmler = [...icerikler];
 
   if (filtreler && filtreler.length > 0) {
-    ayarlanmisFilmler = filmler.filter((film: FilmDetay) =>
+    ayarlanmisFilmler = icerikler.filter((film: FilmDetay) =>
       film.turler.some((filmTuru) => filtreler.includes(filmTuru)),
     );
   }

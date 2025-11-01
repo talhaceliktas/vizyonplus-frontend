@@ -8,7 +8,7 @@ export async function icerikleriGetir(tur: string) {
   const selectQuery =
     tur === "film"
       ? "isim, fotograf, turler, id, film_ucretleri(satin_alma_ucreti, indirim_orani, ogrenci_indirim_orani)"
-      : "isim, fotograf, turler, id";
+      : "isim, fotograf, turler, id, dizi(sezon_numarasi)";
 
   const { data: icerikler, error } = await supabase
     .from("icerikler")
@@ -21,8 +21,8 @@ export async function icerikleriGetir(tur: string) {
     return [];
   }
 
-  return icerikler;
-  // as FilmDetay[];
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  return icerikler as any;
 }
 
 export async function filmiGetir(filmId: number) {

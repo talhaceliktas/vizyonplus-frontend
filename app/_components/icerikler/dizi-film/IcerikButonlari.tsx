@@ -4,7 +4,7 @@ import FavorilereEkleButton from "../../ui/FavorilereEkleButton";
 import { FaRegBookmark, FaRegHeart } from "react-icons/fa6";
 import { User } from "@supabase/supabase-js";
 
-const FilmButonlari = ({ user, id }: { user: User | null; id: number }) => {
+const IcerikButonlari = ({ user, id }: { user: User | null; id: number }) => {
   return (
     <div className="flex justify-end gap-x-2">
       {user ? (
@@ -34,4 +34,4 @@ const FilmButonlari = ({ user, id }: { user: User | null; id: number }) => {
   );
 };
 
-export default FilmButonlari;
+export default IcerikButonlari;

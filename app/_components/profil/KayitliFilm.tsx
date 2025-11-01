@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { filmiGetir } from "../../_lib/data-service-server";
-import { FilmTipi } from "../../types";
+import { IcerikTipi } from "../../types";
 import FavorilereEkleButton from "../ui/FavorilereEkleButton";
 import Link from "next/link";
 import DahaSonraIzleButton from "../ui/DahaSonraIzleButton";
@@ -12,7 +12,7 @@ const KayitliFilm = async ({
   icerik_id: number;
   kayitTuru: string;
 }) => {
-  const film: FilmTipi = await filmiGetir(icerik_id);
+  const film: IcerikTipi = await filmiGetir(icerik_id);
 
   const { id, isim, fotograf, tur, turler, aciklama } = film;
 

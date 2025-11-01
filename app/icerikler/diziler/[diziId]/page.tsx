@@ -1,24 +1,24 @@
 import { Suspense } from "react";
 import { filmiGetir } from "../../../_lib/data-service-server";
-import { FilmDetay } from "../../../types";
+import { DiziDetay } from "../../../types";
 import Loading from "../../../loading";
 import Image from "next/image";
 import Footer from "../../../_components/Footer";
 import supabaseServerClient from "../../../_lib/supabase/server";
 import IcerikButonlari from "../../../_components/icerikler/dizi-film/IcerikButonlari";
-import FilmIcerigi from "../../../_components/icerikler/FilmIcerigi";
 import Yorumlar from "../../../_components/icerikler/dizi-film/Yorumlar";
+import DiziIcerigi from "../../../_components/icerikler/DiziIcerigi";
 
-const Page = async ({ params }: { params: { filmId: number } }) => {
-  const { filmId } = await params;
+const Page = async ({ params }: { params: { diziId: number } }) => {
+  const { diziId } = await params;
 
-  const film: FilmDetay = await filmiGetir(filmId);
+  const dizi: DiziDetay = await filmiGetir(diziId);
 
   const supabase = await supabaseServerClient();
 
   const user = await (await supabase.auth.getUser()).data.user;
 
-  const { id, isim, fotograf } = film;
+  const { id, isim, fotograf } = dizi;
 
   return (
     <Suspense fallback={<Loading />}>
@@ -35,7 +35,7 @@ const Page = async ({ params }: { params: { filmId: number } }) => {
             </div>
 
             <div className="flex w-full flex-col gap-y-6">
-              <FilmIcerigi film={film} />
+              <DiziIcerigi dizi={dizi} />
               <IcerikButonlari id={id} user={user} />
             </div>
           </div>

@@ -8,8 +8,6 @@ import SpoilerYorum from "./SpoilerYorum";
 const Yorumlar = async ({ icerikId }: { icerikId: number }) => {
   const yorumlar = await icerikYorumlariniGetir(icerikId);
 
-  console.log(yorumlar);
-
   return (
     <div className="border-primary-600 relative w-full rounded-2xl border-2 p-4 pt-8">
       <div className="absolute top-0 left-5 flex -translate-y-1/2 items-center gap-x-4 bg-[#151515] px-4 text-2xl">

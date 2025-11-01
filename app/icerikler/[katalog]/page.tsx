@@ -5,7 +5,7 @@ import KategoriIcerik from "../../_components/icerikler/KategoriIcerik";
 import Loading from "../../loading";
 import Yukleniyor from "../../_components/ui/Yukleniyor";
 import Footer from "../../_components/Footer";
-import IcerikTurFiltre from "../../_components/icerikler/IcerikTurFiltre";
+import IcerikTurFiltre from "../../_components/icerikler/dizi-film/IcerikTurFiltre";
 
 export async function generateStaticParams() {
   return [

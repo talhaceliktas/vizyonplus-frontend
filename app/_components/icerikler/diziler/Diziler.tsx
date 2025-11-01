@@ -1,12 +1,11 @@
 import { icerikleriGetir } from "../../../_lib/data-service-server";
+import { DiziDetay } from "../../../types";
 import DiziKonteynir from "./DiziKonteynir";
 
 const Diziler = async () => {
-  const diziler = await icerikleriGetir("dizi");
+  const diziler: DiziDetay[] = await icerikleriGetir("dizi");
 
-  console.log(diziler);
-  return null;
-  // return <DiziKonteynir diziler={diziler} />;
+  return <DiziKonteynir diziler={diziler} />;
 };
 
 export default Diziler;
