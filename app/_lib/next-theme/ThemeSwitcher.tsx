@@ -14,14 +14,14 @@ export const ThemeSwitcher = () => {
 
   if (!mounted) {
     return (
-      <div className="fixed right-5 bottom-5 z-[9999]">
+      <div className="fixed bottom-5 left-5 z-[9999]">
         <div className="relative flex h-12 w-12 items-center justify-center rounded-full border p-2.5 shadow-lg md:h-14 md:w-14 md:p-3 lg:h-16 lg:w-16 lg:p-3.5" />
       </div>
     );
   }
 
   return (
-    <div className="fixed right-5 bottom-5 z-[9999]">
+    <div className="fixed bottom-5 left-5 z-[9999]">
       <button
         onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
         type="button"

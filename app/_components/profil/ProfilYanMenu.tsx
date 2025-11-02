@@ -5,6 +5,7 @@ import { ImExit } from "react-icons/im";
 import { IoHomeOutline } from "react-icons/io5";
 import { LuCalendarClock } from "react-icons/lu";
 import { MdOutlineSettings } from "react-icons/md";
+import CikisYapButton from "../ui/CikisYapButton";
 
 type ProfilYanType = {
   href: string;
@@ -39,9 +40,13 @@ const ProfilYanMenu = ({ routeHref }: { routeHref: string }) => {
       <LayoutElement icon={<MdOutlineSettings />} href="/profil/ayarlar">
         Ayarlar
       </LayoutElement>
-      <LayoutElement icon={<ImExit />} href="/profil/cikisyap">
-        Çıkış yap
-      </LayoutElement>
+      <CikisYapButton
+        href="/"
+        icon={<ImExit />}
+        className={`ml-1 flex flex-row-reverse items-center justify-end gap-x-2 text-3xl opacity-60 duration-300 hover:opacity-100`}
+      >
+        <p className="text-2xl">Çıkış Yap</p>
+      </CikisYapButton>
     </div>
   );
 };
