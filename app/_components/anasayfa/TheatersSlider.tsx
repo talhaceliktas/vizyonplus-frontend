@@ -1,50 +1,25 @@
 "use client";
 
 import Image from "next/image";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import { Movie } from "../../types";
 import Link from "next/link";
+import { Movie } from "../../types";
+
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Autoplay } from "swiper/modules";
+
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/autoplay";
 
 interface TheatersSliderProps {
   movies: Movie[];
 }
 
 const TheatersSlider = ({ movies }: TheatersSliderProps) => {
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 5,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 2500,
-    cssEase: "ease-in",
-    pauseOnHover: true,
-    swipeToSlide: true,
-    responsive: [
-      {
-        breakpoint: 1080,
-        settings: {
-          slidesToShow: 4,
-          slidesToScroll: 1,
-        },
-      },
-      {
-        breakpoint: 640,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 1,
-        },
-      },
-    ],
-  };
-
   return (
-    <div className="w-full p-10">
+    <div className="w-full p-2 md:p-10">
       <div className="mb-4 flex justify-between">
-        <h3 className="text-primary-50 text-2xl duration-300">
+        <h3 className="text-primary-50 text-lg duration-300 md:text-2xl">
           Vizyondaki Filmler
         </h3>
         <Link
@@ -54,10 +29,37 @@ const TheatersSlider = ({ movies }: TheatersSliderProps) => {
           Tümünü Gör
         </Link>
       </div>
-      <Slider {...settings} className="text-primary-100">
+
+      <Swiper
+        modules={[Pagination, Autoplay]}
+        pagination={{ clickable: true }}
+        loop={true}
+        speed={500}
+        autoplay={{
+          delay: 2500,
+          disableOnInteraction: true,
+          pauseOnMouseEnter: true,
+        }}
+        spaceBetween={16}
+        slidesPerView={2}
+        breakpoints={{
+          640: {
+            slidesPerView: 3,
+          },
+          1080: {
+            slidesPerView: 4,
+          },
+          1280: {
+            slidesPerView: 5,
+          },
+        }}
+        className="[&_.swiper-pagination-bullet]:bg-primary-200/50 [&_.swiper-pagination-bullet-active]:bg-primary-200"
+        style={{ paddingBottom: "2.5rem" }}
+      >
         {movies.map((movie) => (
-          <div key={movie.id} className="p-2">
-            <div className="relative aspect-[619/919] w-full">
+          <SwiperSlide key={movie.id}>
+            {/* Yazıyı ve gradient'i içeren ana resim kutusu */}
+            <div className="relative aspect-[619/919] w-full overflow-hidden rounded-md">
               <Image
                 src={movie.big_image}
                 alt={`${movie.title} filmi`}
@@ -65,13 +67,16 @@ const TheatersSlider = ({ movies }: TheatersSliderProps) => {
                 className="object-cover"
                 sizes="100%"
               />
+              {/* Yazı ve Gradient Alanı */}
+              <div className="absolute right-0 bottom-0 left-0 bg-gradient-to-t from-black/80 to-transparent p-3">
+                <h3 className="text-sm font-semibold text-white sm:text-base md:text-lg">
+                  {movie.title}
+                </h3>
+              </div>
             </div>
-            <h3 className="mt-2 text-center text-sm sm:text-base md:text-lg">
-              {movie.title}
-            </h3>
-          </div>
+          </SwiperSlide>
         ))}
-      </Slider>
+      </Swiper>
     </div>
   );
 };

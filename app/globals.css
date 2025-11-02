@@ -123,14 +123,7 @@ body {
   border-radius: 4px;
 }
 
-.slick-dots li button:before {
-  content: "•";
+.swiper-pagination-bullet {
   opacity: 0.25;
-  color: var(--color-primary-100) !important;
-}
-
-.slick-next:before,
-.slick-prev:before {
-  content: "→";
-  color: var(--color-primary-50) !important;
+  background-color: var(--color-primary-100) !important;
 }
