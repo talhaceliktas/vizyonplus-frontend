@@ -6,14 +6,19 @@ const DiziBolumleri = ({ diziSezonBilgileri, seciliSezon }) => {
   );
 
   return (
-    <div className="flex flex-1 flex-col px-8 py-2">
-      <table className="table-auto border-separate border-spacing-y-4">
+    <div className="flex flex-1 flex-col">
+      <table className="table-auto border-collapse">
         <thead>
           {seciliSezonBolumleri.bolumler.map((bolum) => (
-            <tr key={bolum.id}>
-              <td className="text-primary-400">Bölüm {bolum.bolum_numarasi}</td>
+            <tr
+              key={bolum.id}
+              className="hover:bg-primary-800 dark:hover:bg-primary-700 cursor-pointer duration-300"
+            >
+              <td className="text-primary-400 p-2">
+                Bölüm {bolum.bolum_numarasi}
+              </td>
               <td>{bolum.baslik}</td>
-              <td className="text-primary-400 text-end">
+              <td className="text-primary-400 pr-4 text-end">
                 {new Date(bolum.yayin_tarihi).toLocaleDateString("tr-TR", {
                   day: "2-digit",
                   month: "long",

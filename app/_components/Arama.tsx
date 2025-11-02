@@ -121,7 +121,7 @@ const Arama = () => {
                     {veri.aciklama.slice(0, 75)}...
                   </p>
                 </div>
-                <p className="text-secondary-2 text-end text-sm font-normal">
+                <p className="dark:text-secondary-2 text-secondary-1 text-end text-sm font-normal">
                   {veri.tur === "film" ? "Film" : "Dizi"}
                 </p>
               </div>

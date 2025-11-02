@@ -14,7 +14,7 @@ const DiziIcerigi = ({ dizi }: { dizi: DiziDetay }) => {
           <span className="text-2xl italic opacity-50">/ {yonetmen}</span>
         </h1>
       </div>
-      <div className="flex justify-between text-xl opacity-75">
+      <div className="flex justify-between text-lg opacity-75">
         <div className="flex items-center gap-x-10">
           <h3 className="flex items-center gap-x-2">
             <MdDateRange className="h-[30px] w-[30px]" />

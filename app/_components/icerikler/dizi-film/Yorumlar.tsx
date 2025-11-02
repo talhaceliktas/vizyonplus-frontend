@@ -9,8 +9,8 @@ const Yorumlar = async ({ icerikId }: { icerikId: number }) => {
   const yorumlar = await icerikYorumlariniGetir(icerikId);
 
   return (
-    <div className="border-primary-600 relative w-full rounded-2xl border-2 p-4 pt-8">
-      <div className="absolute top-0 left-5 flex -translate-y-1/2 items-center gap-x-4 bg-[#151515] px-4 text-2xl">
+    <div className="border-primary-600 text-primary-100 relative w-full rounded-2xl border-2 p-4 pt-8">
+      <div className="absolute top-0 left-5 flex -translate-y-1/2 items-center gap-x-4 bg-[#f0f0f0] px-4 text-2xl dark:bg-[#151515]">
         <p className="text-4xl">
           <BiCommentDetail />
         </p>

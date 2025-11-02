@@ -16,8 +16,10 @@ const YakindakiFilm = ({ movie }: { movie: Movie }) => {
         />
       </div>
 
-      <h2 className="text-center text-2xl font-semibold">{movie.title}</h2>
-      <div className="text-primary-50 flex flex-col text-center">
+      <div className="text-primary-50 flex flex-col gap-y-2 text-center">
+        <h2 className="dark:text-secondary-1-2 text-secondary-1 text-center text-xl font-semibold">
+          {movie.title}
+        </h2>
         <p className="opacity-75">
           {movie.genre.map((tur, index) => (
             <span key={tur}>
@@ -26,7 +28,7 @@ const YakindakiFilm = ({ movie }: { movie: Movie }) => {
             </span>
           ))}
         </p>
-        <p className="gap-x-4 text-lg">
+        <p className="text-md gap-x-2">
           <span className="opacity-80">Vizyon Tarihi: </span>
           <span className="text-primary-50 font-bold opacity-90">
             {randomDateNext30Days()}

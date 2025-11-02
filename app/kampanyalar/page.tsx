@@ -6,7 +6,7 @@ import Footer from "../_components/Footer";
 const Page = () => {
   return (
     <Suspense fallback={<Loading />}>
-      <div className="mt-48 w-full">
+      <div className="w-full pt-48">
         <div className="mx-auto w-full max-w-[1360px]">
           <div className="rounded-xl">
             <div className="mt-10 grid grid-cols-1 gap-x-5 gap-y-14 p-4 lg:grid-cols-2">
