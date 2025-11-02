@@ -57,7 +57,7 @@ const IcerikTurFiltre = () => {
 
   return (
     <div>
-      <div className="custom-scrollbar text-primary-50 h-64 w-full overflow-y-auto">
+      <div className="custom-scrollbar text-primary-50 max-h-[50vh] w-full overflow-y-auto md:h-64">
         <table>
           <tbody>
             {icerikTurleri &&

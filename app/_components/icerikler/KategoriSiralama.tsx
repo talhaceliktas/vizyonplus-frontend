@@ -31,7 +31,7 @@ const KategoriSiralama = ({ katalog }: { katalog: string }) => {
   return (
     <select
       name="Filtre"
-      className="dark:text-secondary-1-2 text-secondary-1 ml-auto block"
+      className="dark:text-secondary-1-2 text-secondary-1 ml-auto block text-sm md:text-base"
       onChange={(e) => handleFilter(e.target.value)}
       value={siralama}
     >
