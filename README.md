@@ -2,6 +2,19 @@
 
 Vizyon+, [Next.js](https://nextjs.org/), [Supabase](https://supabase.io/) ve [Tailwind CSS](https://tailwindcss.com/) kullanılarak geliştirilmiş, Netflix benzeri tam özellikli bir dizi ve film izleme platformudur. Kullanıcıların içerikleri keşfetmesi, filtrelemesi, listelerine eklemesi ve yorum yapması için modern bir arayüz sunar.
 
+## 🛠️ Kullanılan Teknolojiler
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white" alt="Next.js"/>
+  <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React"/>
+  <img src="https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white" alt="Tailwind CSS"/>
+  <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript"/>
+  <img src="https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white" alt="Supabase"/>
+  <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white" alt="PostgreSQL"/>
+  <img src="https://img.shields.io/badge/Prettier-F7B93E?style=for-the-badge&logo=prettier&logoColor=black" alt="Prettier"/>
+  <img src="https://img.shields.io/badge/ESLint-4B32C3?style=for-the-badge&logo=eslint&logoColor=white" alt="ESLint"/>
+</p>
+
 ## ✨ Temel Özellikler
 
 - **Güvenli Kimlik Doğrulama:** Supabase Auth (E-posta/Şifre ile) kullanarak güvenli kayıt olma ve giriş yapma.
@@ -21,7 +34,6 @@ Vizyon+, [Next.js](https://nextjs.org/), [Supabase](https://supabase.io/) ve [Ta
 - **Tema Desteği:** `next-themes` kütüphanesi ile aydınlık ve karanlık mod arasında kolayca geçiş yapabilme.
 - **Duyarlı Arayüz:** `swiper` ve Tailwind CSS ile mobil, tablet ve masaüstü cihazlara tam uyumlu tasarım.
 
-## 🛠️ Kullanılan Teknolojiler
 
 ### Frontend
 
@@ -62,7 +74,7 @@ Güvenlik, **Row Level Security (RLS)** politikaları ile sağlanmıştır. Bu s
 
     ```bash
     git clone https://github.com/talhaceliktas/vizyonplus-frontend.git
-    cd vizyonplus-frontend.git
+    cd vizyonplus-frontend
     ```
 
 2.  **Bağımlılıkları yükleyin:**
