@@ -35,7 +35,7 @@ const YorumYap = ({ icerikId }: { icerikId: number }) => {
       <textarea
         value={yorum}
         onChange={(e) => setYorum(e.target.value)}
-        className="border-primary-600 mt-4 w-full rounded-md border-2 bg-transparent p-2"
+        className="border-primary-600 mt-4 w-full rounded-md border-2 bg-transparent p-2 text-sm sm:text-base"
         placeholder="Lütfen yorumunuzu giriniz..."
         rows={10}
       />

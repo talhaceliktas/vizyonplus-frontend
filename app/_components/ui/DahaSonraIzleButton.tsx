@@ -32,7 +32,7 @@ const DahaSonraIzleButton = ({ icerik_id }: { icerik_id: number }) => {
 
   return (
     <button
-      className={`text-[1.95rem] ${isLoading ? "cursor-not-allowed" : "cursor-pointer"}`}
+      className={`text-[1.45rem] sm:text-[1.95rem] ${isLoading ? "cursor-not-allowed" : "cursor-pointer"}`}
       onClick={(e) => favoriyeEkleTiklandi(e)}
       disabled={isLoading}
     >

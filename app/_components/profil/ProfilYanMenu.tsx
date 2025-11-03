@@ -2,7 +2,6 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import { FaRegHeart } from "react-icons/fa6";
 import { ImExit } from "react-icons/im";
-import { IoHomeOutline } from "react-icons/io5";
 import { LuCalendarClock } from "react-icons/lu";
 import { MdOutlineSettings } from "react-icons/md";
 import CikisYapButton from "../ui/CikisYapButton";

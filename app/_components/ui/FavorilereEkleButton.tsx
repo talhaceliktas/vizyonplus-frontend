@@ -32,7 +32,7 @@ const FavorilereEkleButton = ({ icerik_id }: { icerik_id: number }) => {
 
   return (
     <button
-      className={`text-4xl ${isLoading ? "cursor-not-allowed" : "cursor-pointer"}`}
+      className={`text-2xl sm:text-4xl ${isLoading ? "cursor-not-allowed" : "cursor-pointer"}`}
       onClick={(e) => favoriyeEkleTiklandi(e)}
       disabled={isLoading}
     >

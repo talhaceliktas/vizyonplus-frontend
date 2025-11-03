@@ -36,7 +36,7 @@ const SpoilerYorum = ({ yorum }: { yorum: YorumTipi }) => {
         </div>
       </div>
       <h3
-        className={`text-secondary-1 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 cursor-pointer text-xl duration-300 ${spoilerAcildi && "invisible"}`}
+        className={`text-secondary-1 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 cursor-pointer text-center text-base duration-300 sm:text-xl ${spoilerAcildi && "invisible"}`}
       >
         Spoilerı görmek için tıkla!
       </h3>

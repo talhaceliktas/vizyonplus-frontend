@@ -115,7 +115,7 @@ const Navbar = () => {
           <Image
             alt="Vizyon Plus Logosu"
             src={vizyonPLusLogo}
-            className="w-32 sm:w-38"
+            className="w-24 sm:w-38"
           />
         </Link>
         {/* Desktop Linkleri */}
@@ -161,7 +161,7 @@ const Navbar = () => {
                         className="rounded-full"
                       />
 
-                      <p className="text-primary-200 font-semibold dark:text-white">
+                      <p className="text-primary-200 hidden font-semibold sm:block dark:text-white">
                         {user?.user_metadata?.display_name}
                       </p>
                     </>

@@ -5,7 +5,7 @@ import Ayarlar from "../../_components/profil/Ayarlar";
 
 const Page = () => {
   return (
-    <div className="flex w-full gap-x-10">
+    <div className="flex w-full flex-col gap-x-10 gap-y-10 lg:flex-row">
       <ProfilYanMenu routeHref="/profil/ayarlar" />
       <div className="flex-1">
         <Suspense fallback={<Yukleniyor />}>

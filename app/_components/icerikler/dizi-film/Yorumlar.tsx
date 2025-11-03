@@ -18,8 +18,8 @@ const Yorumlar = async ({ icerikId }: { icerikId: number }) => {
       <div
         className={`border-primary-600 text-primary-100 relative w-full rounded-2xl border-2 p-4 pt-8 ${!user && "pointer-events-none blur-sm"}`}
       >
-        <div className="absolute top-0 left-5 flex -translate-y-1/2 items-center gap-x-4 bg-[#f0f0f0] px-4 text-2xl dark:bg-[#151515]">
-          <p className="text-4xl">
+        <div className="absolute top-0 left-5 flex -translate-y-1/2 items-center gap-x-4 bg-[#f0f0f0] px-4 text-lg sm:text-2xl dark:bg-[#191919] sm:dark:bg-[#151515]">
+          <p className="text-xl sm:text-4xl">
             <BiCommentDetail />
           </p>
           <h2>Yorumlar</h2>
