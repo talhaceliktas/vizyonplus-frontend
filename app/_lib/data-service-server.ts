@@ -144,3 +144,30 @@ export async function profilFotografiniGetir(kullaniciId: string) {
   // data null olursa boş string döndür
   return data?.profil_fotografi ?? "";
 }
+
+export async function rapidApidenFilmleriGetir() {
+  try {
+    const res = await fetch("https://imdb-top-100-movies.p.rapidapi.com/", {
+      method: "GET",
+      headers: {
+        "x-rapidapi-key": process.env.RAPIDAPI_KEY!,
+        "x-rapidapi-host": "imdb-top-100-movies.p.rapidapi.com",
+      },
+      next: { revalidate: 86400 },
+    });
+
+    if (!res.ok) {
+      console.error("RapidAPI isteği başarısız oldu. Status:", res.status);
+      const errorText = await res.text();
+      console.error("RapidAPI Hata:", errorText);
+      throw new Error(`RapidAPI'den veri alınamadı. Status: ${res.status}`);
+    }
+
+    const movies = await res.json();
+    const topTenMovies = movies.slice(0, 10);
+    return topTenMovies;
+  } catch (error) {
+    console.error("getMoviesFromRapidAPI fonksiyonunda hata:", error);
+    return null;
+  }
+}
