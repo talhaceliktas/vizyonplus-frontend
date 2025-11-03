@@ -25,7 +25,7 @@ const Page = async ({ params }: { params: { diziId: number } }) => {
     <Suspense fallback={<Loading />}>
       <div className="text-primary-50 px-4 pt-40 pb-20">
         <div className="mx-auto flex h-full w-full max-w-[1360px] flex-col gap-y-20">
-          <div className="flex gap-x-10 gap-y-10">
+          <div className="flex flex-col gap-x-10 gap-y-10 md:flex-row">
             <div className="relative aspect-[9/16] w-full max-w-[400px]">
               <Image
                 alt={`${isim} filmi kapağı`}

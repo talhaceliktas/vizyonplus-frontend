@@ -8,7 +8,7 @@ const DiziSezonKonteynir = ({ dizi }) => {
   const [seciliSezon, setSeciliSezon] = useState(1);
 
   return (
-    <div className="divide-primary-500 border-primary-600 flex border-[1px]">
+    <div className="divide-primary-500 border-primary-600 flex flex-col border-[1px] md:flex-row">
       <DiziSezonlari
         diziSezonBilgileri={dizi.dizi}
         seciliSezon={seciliSezon}

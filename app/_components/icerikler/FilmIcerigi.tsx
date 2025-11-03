@@ -8,9 +8,11 @@ const FilmIcerigi = ({ film }: { film: FilmDetay }) => {
   return (
     <>
       <div className="flex items-center justify-between">
-        <h1 className="text-6xl">
-          {isim}{" "}
-          <span className="text-2xl italic opacity-50">/ {yonetmen}</span>
+        <h1 className="flex flex-col text-2xl md:inline-block md:text-6xl">
+          <span>{isim} </span>
+          <span className="text-lg italic opacity-50 md:text-2xl">
+            / {yonetmen}
+          </span>
         </h1>
       </div>
       <div className="flex justify-between text-xl opacity-75">
