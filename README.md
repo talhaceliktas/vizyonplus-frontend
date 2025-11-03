@@ -1,36 +1,94 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Vizyon+ | Modern Dizi & Film Platformu
 
-## Getting Started
+Vizyon+, [Next.js](https://nextjs.org/), [Supabase](https://supabase.io/) ve [Tailwind CSS](https://tailwindcss.com/) kullanılarak geliştirilmiş, Netflix benzeri tam özellikli bir dizi ve film izleme platformudur. Kullanıcıların içerikleri keşfetmesi, filtrelemesi, listelerine eklemesi ve yorum yapması için modern bir arayüz sunar.
 
-First, run the development server:
+## ✨ Temel Özellikler
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Güvenli Kimlik Doğrulama:** Supabase Auth (E-posta/Şifre ile) kullanarak güvenli kayıt olma ve giriş yapma.
+- **İçerik Keşfi:**
+  - Diziler ve filmler için ayrı listeleme sayfaları.
+  - Türe göre gelişmiş filtreleme.
+  - İçerikleri alfabetik (A-Z, Z-A) veya puana (Artan, Azalan) göre sıralama.
+  - Tüm platformda çalışan anlık arama çubuğu.
+- **Kullanıcı Etkileşimi:**
+  - Filmlere ve dizilere yorum yapabilme (Spoiler gizleme seçeneği ile).
+  - "Favoriler" listesi oluşturma.
+  - "Daha Sonra İzle" listesine içerik ekleme.
+- **Profil Yönetimi:**
+  - Kullanıcı adı, e-posta ve cinsiyet bilgilerini güncelleme.
+  - Profil fotoğrafı yükleme ve değiştirme (Supabase Storage ile).
+  - Güvenli şifre değişikliği.
+- **Tema Desteği:** `next-themes` kütüphanesi ile aydınlık ve karanlık mod arasında kolayca geçiş yapabilme.
+- **Duyarlı Arayüz:** `swiper` ve Tailwind CSS ile mobil, tablet ve masaüstü cihazlara tam uyumlu tasarım.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🛠️ Kullanılan Teknolojiler
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Frontend
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Framework:** **Next.js 15** (App Router)
+- **UI Kütüphanesi:** **React 19**
+- **Stil:** **Tailwind CSS 4**
+- **Tema:** `next-themes` (Aydınlık/Karanlık Mod)
+- **Form Yönetimi:** `react-hook-form`
+- **UI Bileşenleri:**
+  - `swiper`: Modern slider ve carousel'ler için.
+  - `react-icons`: İkon kütüphanesi.
+  - `react-hot-toast`: Bildirimler (Toast).
+  - `react-spinners`: Yükleme animasyonları.
+  - `emoji-picker-react`: Yorumlar için emoji seçici.
 
-## Learn More
+### Backend & Veritabanı
 
-To learn more about Next.js, take a look at the following resources:
+- **Platform:** **Supabase**
+- **Veritabanı:** **PostgreSQL**
+- **Kimlik Doğrulama:** `supabase/ssr` ve `@supabase/auth-helpers-nextjs` (Sunucu ve İstemci taraflı oturum yönetimi)
+- **Depolama:** Supabase Storage (Profil fotoğrafları için)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Geliştirme Araçları
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Dil:** **TypeScript**
+- **Formatlama:** Prettier (`prettier-plugin-tailwindcss`)
+- **Linting:** ESLint
 
-## Deploy on Vercel
+## 🗃️ Veritabanı Yapısı ve Güvenlik
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Proje, Supabase PostgreSQL veritabanını kullanır. Veritabanı şeması; `icerikler`, `profiller`, `diziler`, `bolumler`, `yorumlar`, `favoriler` ve `daha_sonra_izle` gibi ana tablolar etrafında şekillenmiştir.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Güvenlik, **Row Level Security (RLS)** politikaları ile sağlanmıştır. Bu sayede kullanıcılar sadece kendi verilerine (profil, favoriler vb.) erişebilir, silebilir veya güncelleyebilir ve veritabanı üzerinde yetkisiz işlem yapamazlar.
+
+## 🚀 Projeyi Başlatma
+
+1.  **Depoyu klonlayın:**
+
+    ```bash
+    git clone https://github.com/talhaceliktas/vizyonplus-frontend.git
+    cd vizyonplus-frontend.git
+    ```
+
+2.  **Bağımlılıkları yükleyin:**
+
+    ```bash
+    npm install
+    # veya
+    yarn install
+    ```
+
+3.  **Supabase Çevre Değişkenlerini Ayarlayın:**
+    `.env.local.example` dosyasını `.env.local` olarak kopyalayın ve kendi Supabase projenizin **URL** ve **Anon Key** bilgilerini girin:
+
+    ```env
+    NEXT_PUBLIC_SUPABASE_URL=YOUR_SUPABASE_URL
+    NEXT_PUBLIC_SUPABASE_ANON_KEY=YOUR_SUPABASE_ANON_KEY
+    RAPIDAPI_KEY=YOUR_IMDB_RAPID_API_KEY
+    ```
+
+4.  **Veritabanı Şemasını Kurun:**
+    - Supabase projenizin "SQL Editor" bölümüne gidin.
+    - Size sağlanan SQL şemasını çalıştırarak tabloları ve RLS politikalarını oluşturun.
+
+5.  **Geliştirme sunucusunu başlatın:**
+    ```bash
+    npm run dev
+    ```
+
+Uygulama artık `http://localhost:3000` adresinde çalışıyor olacaktır.
