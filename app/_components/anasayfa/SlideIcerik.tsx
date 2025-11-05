@@ -4,9 +4,8 @@ import Link from "next/link";
 import { MdOutlineDateRange } from "react-icons/md";
 import { FaRegClock } from "react-icons/fa";
 import { HiArrowNarrowRight } from "react-icons/hi";
-import { GirisProps } from "../../types"; // Ana tipten sadece bir slide'ı alacağız
+import { GirisProps } from "../../types";
 
-// Tip olarak tüm array yerine array'in bir elemanını alalım
 type Slide = GirisProps["tanitimVerileri"][0];
 
 interface SlideIcerikProps {
@@ -15,11 +14,11 @@ interface SlideIcerikProps {
 
 const SlideIcerik = ({ slide }: SlideIcerikProps) => {
   return (
-    <div className="dark:bg-primary-900/5 bg-primary-900/40 absolute top-1/2 left-4 z-20 -translate-y-1/2 rounded-2xl border border-white/10 p-4 shadow-xl backdrop-blur-[0.3rem] duration-500 hover:scale-105 md:left-24 md:p-6 lg:left-40 dark:shadow-black/50">
+    <div className="bg-primary-900/5 absolute top-1/2 left-4 z-20 -translate-y-1/2 rounded-2xl border border-white/10 p-4 shadow-xl backdrop-blur-[0.3rem] duration-500 hover:scale-105 md:left-24 md:p-6 lg:left-40 dark:shadow-black/50">
       <div className="flex flex-col items-start gap-x-5 gap-y-2 text-sm md:flex-row md:items-center md:gap-y-0 md:text-base">
-        <h3 className="text-primary-100 text-3xl duration-100">{slide.isim}</h3>
+        <h3 className="text-3xl text-white duration-100">{slide.isim}</h3>
 
-        <div className="text-primary-300 flex gap-x-5 duration-100">
+        <div className="flex gap-x-5 text-white/50 duration-100">
           <p className="flex items-center gap-x-2 font-bold">
             <MdOutlineDateRange />
             {slide.kategoriler}
@@ -31,10 +30,9 @@ const SlideIcerik = ({ slide }: SlideIcerikProps) => {
         </div>
       </div>
 
-      <hr className="border-primary-50 my-3 duration-100" />
+      <hr className="my-3 border-white duration-100" />
 
-      {/* Genişliği daha esnek hale getirdik */}
-      <p className="text-primary-50 max-w-xs px-1 duration-100 md:max-w-md lg:max-w-lg">
+      <p className="max-w-xs px-1 text-white/80 duration-100 md:max-w-md lg:max-w-lg">
         {slide.aciklama}
       </p>
 
@@ -43,7 +41,7 @@ const SlideIcerik = ({ slide }: SlideIcerikProps) => {
         href={slide.link}
       >
         <p className="dark:from-secondary-1 dark:via-secondary-2 dark:to-secondary-1 from-secondary-3 via-secondary-2 to-secondary-3 bg-gradient-to-l bg-clip-text font-bold text-transparent duration-100">
-          Filme Git
+          {slide.tur === "film" ? "Filme Git" : "Diziye Git"}
         </p>
         <HiArrowNarrowRight className="fill-secondary-2 text-2xl" />
       </Link>

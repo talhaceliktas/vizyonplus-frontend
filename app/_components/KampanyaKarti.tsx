@@ -54,7 +54,7 @@ const KampanyaKarti: React.FC<KampanyaKartiProps> = ({
           </div>
         )}
         <h3
-          className={`mb-4 text-3xl font-bold text-white ${poppins.className}`}
+          className={`text-primary-50 mb-4 text-3xl font-bold ${poppins.className}`}
         >
           {baslik}
         </h3>

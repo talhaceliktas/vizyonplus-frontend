@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import MouseKaydir from "../ui/MouseKaydir";
 
 import { type Swiper as SwiperCore } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -56,10 +55,6 @@ const Giris = ({ tanitimVerileri }: GirisProps) => {
       </Swiper>
 
       <ThumbSlider data={tanitimVerileri} onSwiper={setThumbsSwiper} />
-
-      <div className="absolute bottom-5 left-1/2 z-40 -translate-x-1/2 md:hidden">
-        <MouseKaydir />
-      </div>
     </div>
   );
 };

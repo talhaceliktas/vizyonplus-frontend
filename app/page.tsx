@@ -11,7 +11,7 @@ export default async function Home() {
     <div>
       <div className="relative">
         <Giris tanitimVerileri={tanitimVerileri} />
-        <div className="absolute bottom-10 left-1/2 z-50 -translate-x-1/2">
+        <div className="absolute bottom-10 left-1/2 z-50 -translate-x-2/3">
           <MouseKaydir />
         </div>
       </div>

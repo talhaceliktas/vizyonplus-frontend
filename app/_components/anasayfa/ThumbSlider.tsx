@@ -6,7 +6,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Thumbs } from "swiper/modules";
 import { GirisProps } from "../../types";
 
-// Gerekli Swiper CSS modüllerini burada da import edebiliriz (veya globalde)
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
@@ -42,7 +41,6 @@ const ThumbSlider = ({ data, onSwiper }: ThumbSliderProps) => {
               className="rounded-md object-cover"
               sizes="150px"
             />
-            {/* Başlık */}
             <div className="absolute bottom-0 left-0 w-full truncate bg-black/70 p-1 text-center text-xs font-semibold text-white">
               {tanitim.isim}
             </div>

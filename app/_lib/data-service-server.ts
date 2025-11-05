@@ -204,8 +204,9 @@ export async function tanitimlariGetir() {
         aciklama: icerik.aciklama || "Açıklama mevcut değil.",
         kategoriler: (icerik.turler || []).slice(0, 3).join(" | "),
         sure: `${icerik.sure || 0} dk`,
+        tur: icerik.tur,
         poster: icerik.yan_fotograf || icerik.fotograf,
-        link: `/icerik/${icerik.id}`,
+        link: `/icerikler/${icerik.tur === "film" ? "filmler/" : "diziler/"}${icerik.id}`,
       };
     })
     .filter(Boolean);

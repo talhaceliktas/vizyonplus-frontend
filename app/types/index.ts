@@ -86,6 +86,7 @@ export type TanitimSlideTipi = {
   sure: string;
   poster: string;
   link: string;
+  tur: string;
 };
 
 export type GirisProps = {
