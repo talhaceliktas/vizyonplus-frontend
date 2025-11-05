@@ -10,6 +10,7 @@ import marvelBannerDark from "../../../public/marvelBannerDark.jpg";
 import marvelBannerLight from "../../../public/marvelBannerLight.jpg";
 import marvelLogo from "../../../public/marvelLogo.png";
 import Link from "next/link";
+import MouseKaydir from "../ui/MouseKaydir";
 
 const Giris = () => {
   const { theme, systemTheme } = useTheme();
@@ -78,6 +79,9 @@ const Giris = () => {
             <HiArrowNarrowRight className="fill-secondary-2 text-2xl" />
           </Link>
         </div>
+      </div>
+      <div className="absolute bottom-5 left-1/2 -translate-x-1/2">
+        <MouseKaydir />
       </div>
     </div>
   );
