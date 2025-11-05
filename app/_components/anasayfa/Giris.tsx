@@ -1,86 +1,63 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
-import { MdOutlineDateRange } from "react-icons/md";
-import { FaRegClock } from "react-icons/fa";
-import { HiArrowNarrowRight } from "react-icons/hi";
-import { useTheme } from "next-themes";
-
-import marvelBannerDark from "../../../public/marvelBannerDark.jpg";
-import marvelBannerLight from "../../../public/marvelBannerLight.jpg";
-import marvelLogo from "../../../public/marvelLogo.png";
-import Link from "next/link";
 import MouseKaydir from "../ui/MouseKaydir";
 
-const Giris = () => {
-  const { theme, systemTheme } = useTheme();
-  const currentTheme = theme === "system" ? systemTheme : theme;
+import { type Swiper as SwiperCore } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Autoplay, EffectFade, Thumbs } from "swiper/modules";
 
-  const bannerImage =
-    currentTheme === "dark" ? marvelBannerDark : marvelBannerLight;
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/effect-fade";
+
+import SlideIcerik from "./SlideIcerik";
+import ThumbSlider from "./ThumbSlider";
+import { GirisProps } from "../../types";
+
+const Giris = ({ tanitimVerileri }: GirisProps) => {
+  const [thumbsSwiper, setThumbsSwiper] = useState<SwiperCore | null>(null);
 
   return (
-    <div className="relative">
-      <div className="relative h-screen">
-        <Image
-          src={bannerImage}
-          fill
-          alt="Marvel Banneri"
-          className="object-cover brightness-90 duration-1000 dark:opacity-60"
-          sizes="100vw"
-          priority
-        />
+    <div className="relative h-screen w-full">
+      <Swiper
+        modules={[Pagination, Autoplay, EffectFade, Thumbs]}
+        thumbs={{
+          swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null,
+        }}
+        className="main-swiper h-full w-full"
+        effect="fade"
+        loop={true}
+        autoplay={{
+          delay: 5000,
+          disableOnInteraction: false,
+        }}
+        pagination={{
+          clickable: true,
+        }}
+      >
+        {tanitimVerileri.map((slide, index) => (
+          <SwiperSlide key={slide.id} className="relative h-screen w-full">
+            <div className="absolute inset-0 z-10 bg-black/40" />
 
-        <div className="dark:bg-primary-900/5 bg-primary-900/40 absolute top-1/2 ml-5 -translate-y-1/2 rounded-2xl border border-white/10 p-4 shadow-xl backdrop-blur-[0.3rem] duration-500 hover:scale-105 md:ml-40 md:p-6 dark:shadow-black/50">
-          <div className="relative h-[7rem] w-[14rem] md:h-[15rem] md:w-[30rem]">
             <Image
-              src={marvelLogo}
+              src={slide.poster}
               fill
-              alt="Marvel Logosu"
-              className="object-contain"
-              sizes="(max-width: 768px) 14rem, 30rem"
+              alt={slide.isim}
+              className="object-cover duration-1000"
+              sizes="100vw"
+              priority={index === 0}
             />
-          </div>
-          <div className="flex flex-col items-center gap-x-5 gap-y-2 text-sm md:flex-row md:gap-y-0 md:text-base">
-            <h3 className="text-primary-100 duration-100">
-              Aksiyon | Macera | Bilim Kurgu
-            </h3>
-            <div className="text-primary-300 flex gap-x-5 duration-100">
-              <p className="flex items-center gap-x-2 font-bold">
-                <MdOutlineDateRange />
-                2019
-              </p>
-              <p className="flex items-center gap-x-2 font-bold">
-                <FaRegClock />
-                3s 2dk
-              </p>
-            </div>
-          </div>
 
-          <hr className="border-primary-50 my-3 duration-100" />
+            <SlideIcerik slide={slide} />
+          </SwiperSlide>
+        ))}
+      </Swiper>
 
-          <p className="text-primary-50 w-[14rem] px-1 duration-100 md:w-[30rem]">
-            Marvel Sinematik Evreni’nin en büyük buluşması! Avengers: Endgame,
-            Thanos’un evrenin yarısını yok etmesinin ardından kalan
-            kahramanların son bir umutla mücadelesini konu alıyor. Zaman,
-            fedakârlık ve dostluk üzerine kurulu bu destansı final; duygusal
-            anları, etkileyici görsel efektleri ve unutulmaz sahneleriyle
-            izleyicileri büyülüyor.
-          </p>
+      <ThumbSlider data={tanitimVerileri} onSwiper={setThumbsSwiper} />
 
-          {/* Linkte tekrar bakilacak */}
-          <Link
-            className="mt-4 flex items-center justify-end gap-x-2 pr-2 duration-300 hover:scale-x-[1.05] hover:scale-y-[1.15] hover:gap-x-4"
-            href="/icerikler/filmler/447"
-          >
-            <p className="dark:from-secondary-1 dark:via-secondary-2 dark:to-secondary-1 from-secondary-3 via-secondary-2 to-secondary-3 bg-gradient-to-l bg-clip-text font-bold text-transparent duration-100">
-              Filme Git
-            </p>
-            <HiArrowNarrowRight className="fill-secondary-2 text-2xl" />
-          </Link>
-        </div>
-      </div>
-      <div className="absolute bottom-5 left-1/2 -translate-x-1/2">
+      <div className="absolute bottom-5 left-1/2 z-40 -translate-x-1/2 md:hidden">
         <MouseKaydir />
       </div>
     </div>

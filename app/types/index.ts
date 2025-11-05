@@ -36,6 +36,7 @@ export type IcerikTipi = {
   yonetmen?: string;
   olusturulma_zamani?: string;
   turler: string[];
+  yan_fotograf?: string;
 };
 
 export type FilmDetay = IcerikTipi & {
@@ -75,4 +76,18 @@ export type YorumTipi = {
   spoiler_mi: boolean;
   olusturulma_zamani: string;
   profiller: { profil_fotografi: string | null; isim: string };
+};
+
+export type TanitimSlideTipi = {
+  id: number | string;
+  isim: string;
+  aciklama: string;
+  kategoriler: string;
+  sure: string;
+  poster: string;
+  link: string;
+};
+
+export type GirisProps = {
+  tanitimVerileri: TanitimSlideTipi[];
 };

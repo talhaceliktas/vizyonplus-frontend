@@ -175,3 +175,40 @@ export async function rapidApidenFilmleriGetir() {
     return null;
   }
 }
+
+export async function tanitimlariGetir() {
+  const supabase = await supabaseServer();
+
+  const { data: tanitimlar, error } = await supabase
+    .from("tanitimlar")
+    .select("icerikler(*)");
+
+  if (error) {
+    console.error("Tanitim hatası:", error.message || error);
+    return [];
+  }
+
+  if (!tanitimlar) {
+    return [];
+  }
+
+  const slidesData = tanitimlar
+    .map((tanitim) => {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const icerik: any = tanitim.icerikler;
+      if (!icerik) return null;
+
+      return {
+        id: icerik.id,
+        isim: icerik.isim,
+        aciklama: icerik.aciklama || "Açıklama mevcut değil.",
+        kategoriler: (icerik.turler || []).slice(0, 3).join(" | "),
+        sure: `${icerik.sure || 0} dk`,
+        poster: icerik.yan_fotograf || icerik.fotograf,
+        link: `/icerik/${icerik.id}`,
+      };
+    })
+    .filter(Boolean);
+
+  return slidesData;
+}
